@@ -1,0 +1,26 @@
+.link {
+    text-decoration: none;
+    color: white;
+    border: 1px solid black;
+    padding: 6px 15px;
+    background-color: teal;
+    cursor: pointer;
+}
+
+.container {
+    text-align: center;
+    margin: 47px 0;
+}
+
+.btns {
+    margin-top: inherit;
+}
+
+.head {
+    font-size: larger;
+    margin-bottom: 3rem;
+}
+
+body {
+    background-color: aliceblue;
+}

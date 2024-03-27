@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/job_appli/home.css">
+</head>
+
+<body>
+    <div class="container">
+        <p class="head">Home Page</p>
+        <label for="">User Id : </label><input type="text" id="userId"><br>
+
+        <div class="btns">
+            <a href="/job_application/insert" class="link">New User</a>
+
+            <a onclick="update()" class="link">Update Your Records</a>
+            <%if(inserted_id !='' ){%>
+                <p class="head">
+                    Data Inserted Successfully,
+                    <br>
+                    Your ID is <%=inserted_id%>
+                </p>
+                <%}%>
+
+                    <%if(error !="" ){%>
+                        <p class="head">
+                            <%=error%>
+                        </p>
+                        <%}%>
+
+                            <%if(data_header.length>0){%>
+                                <table border="1" class="tbl">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                ID
+                                            </th>
+                                            <th>
+                                                First Name
+                                            </th>
+                                            <th>
+                                                Last Name
+                                            </th>
+                                            <th>
+                                                Designation
+                                            </th>
+                                            <th>
+                                                Update
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <%for(j=0;j<data.length;j++){ %>
+                                            <tr>
+
+                                                <td>
+                                                    <%= data[j].appli_id %>
+
+                                                </td>
+                                                <td>
+                                                    <%= data[j].first_name %>
+
+                                                </td>
+                                                <td>
+                                                    <%= data[j].last_name %>
+
+                                                </td>
+                                                <td>
+                                                    <%= data[j].designation %>
+
+                                                </td>
+                                                <td>
+                                                    <a class="update" onclick="click_event(event)">Update</a>
+
+                                                </td>
+
+                                            </tr>
+                                            <%}%>
+                                    </tbody>
+
+                                </table>
+                                <%}%>
+        </div>
+    </div>
+    <style>
+        .tbl{
+            margin: 2rem auto;
+        }
+        .update{
+            cursor: pointer;
+        }
+    </style>
+    <script>
+
+        function click_event(event){
+            var id = event.target.parentNode.parentNode.children[0].innerHTML.trim();
+            window.location.href = `/job_application/update?id=${id}`;
+        }
+
+        var userId = document.getElementById('userId');
+        function update() {
+            window.location.href = `/job_application/update?id=${userId.value}`;
+        }
+    </script>
+</body>
+
+</html>
