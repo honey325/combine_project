@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./result.css">
+</head>
+
+<body>
+    <p class="head"> Name : Honey Andharia </p>
+    <p class="details"> Student ID = <%= id%> Name = <%= std_name[0].first_name%>
+    </p>
+    <table class="tbl" border="1">
+        <thead>
+
+            <tr>
+                <th rowspan="2">Subject</th>
+
+                <th colspan="4">Terminal</th>
+                <th colspan="4">Prilimary</th>
+                <th colspan="4">Final</th>
+                <th rowspan="2">Total Marks</th>
+                <th rowspan="2">Obtain Marks</th>
+
+
+            </tr>
+            <tr>
+                <th>Practical total</th>
+                <th>Practical obtain</th>
+                <th>Theory total</th>
+                <th>Theory obtain</th>
+                <th>Practical total</th>
+                <th>Practical obtain</th>
+                <th>Theory total</th>
+                <th>Theory obtain</th>
+                <th>Practical total</th>
+                <th>Practical obtain</th>
+                <th>Theory total</th>
+                <th>Theory obtain</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%for(i=0;i<data1.length;i++){%>
+                <tr>
+                    <td>
+                        <%= data1[i].sub_name%>
+                    </td>
+                    <td>
+                        <%= data1[i].total_p%>
+                    </td>
+                    <td>
+                        <%= data1[i].prac_marks%>
+                    </td>
+                    <td>
+                        <%= data1[i].total_th%>
+                    </td>
+                    <td>
+                        <%= data1[i].theory_marks%>
+                    </td>
+                    <td>
+                        <%= data2[i].total_p%>
+                    </td>
+                    <td>
+                        <%= data2[i].prac_marks%>
+                    </td>
+                    <td>
+                        <%= data2[i].total_th%>
+                    </td>
+                    <td>
+                        <%= data2[i].theory_marks%>
+                    </td>
+                    <td>
+                        <%= data3[i].total_p%>
+                    </td>
+                    <td>
+                        <%= data3[i].prac_marks%>
+                    </td>
+                    <td>
+                        <%= data3[i].total_th%>
+                    </td>
+                    <td>
+                        <%= data3[i].theory_marks%>
+                    </td>
+                    <td>
+                        <%= data1[i].total_p + data2[i].total_p+data3[i].total_p +
+                            data1[i].total_th+data2[i].total_th+data3[i].total_th%>
+                    </td>
+                    <td>
+                        <%= data1[i].prac_marks + data2[i].prac_marks+data3[i].prac_marks +
+                            data1[i].theory_marks+data2[i].theory_marks+data3[i].theory_marks %>
+                    </td>
+                </tr>
+                <%}%>
+                    <tr>
+                        <td>
+                            TOTAL
+                        </td>
+                        <!-- data1 -->
+                        <td>
+                            <%sum=0%>
+                                <%for(i=0;i<data1.length;i++){%>
+                                    <% sum +=data1[i].total_p %>
+                                        <%}%>
+                                            <%= sum%>
+                        </td>
+                        <td>
+                            <%sum=0%>
+                                <%for(i=0;i<data1.length;i++){%>
+                                    <% sum +=data1[i].prac_marks %>
+                                        <%}%>
+                                            <%= sum%>
+                        </td>
+                        <td>
+                            <%sum=0%>
+                                <%for(i=0;i<data1.length;i++){%>
+                                    <% sum +=data1[i].total_th %>
+                                        <%}%>
+                                            <%= sum%>
+                        </td>
+                        <td>
+                            <%sum=0%>
+                                <%for(i=0;i<data1.length;i++){%>
+                                    <% sum +=data1[i].theory_marks %>
+                                        <%}%>
+                                            <%= sum%>
+                        </td>
+
+
+
+                        <!-- data2 -->
+                        <td>
+                            <%sum=0%>
+                                <%for(i=0;i<data1.length;i++){%>
+                                    <% sum +=data2[i].total_p %>
+                                        <%}%>
+                                            <%= sum%>
+                        </td>
+                        <td>
+                            <%sum=0%>
+                                <%for(i=0;i<data1.length;i++){%>
+                                    <% sum +=data2[i].prac_marks %>
+                                        <%}%>
+                                            <%= sum%>
+                        </td>
+                        <td>
+                            <%sum=0%>
+                                <%for(i=0;i<data1.length;i++){%>
+                                    <% sum +=data2[i].total_th %>
+                                        <%}%>
+                                            <%= sum%>
+                        </td>
+                        <td>
+                            <%sum=0%>
+                                <%for(i=0;i<data1.length;i++){%>
+                                    <% sum +=data2[i].theory_marks %>
+                                        <%}%>
+                                            <%= sum%>
+                        </td>
+
+
+                        <!-- data3 -->
+
+
+                        <td>
+                            <%sum=0%>
+                                <%for(i=0;i<data1.length;i++){%>
+                                    <% sum +=data3[i].total_p %>
+                                        <%}%>
+                                            <%= sum%>
+                        </td>
+                        <td>
+                            <%sum=0%>
+                                <%for(i=0;i<data1.length;i++){%>
+                                    <% sum +=data3[i].prac_marks %>
+                                        <%}%>
+                                            <%= sum%>
+                        </td>
+                        <td>
+                            <%sum=0%>
+                                <%for(i=0;i<data1.length;i++){%>
+                                    <% sum +=data3[i].total_th %>
+                                        <%}%>
+                                            <%= sum%>
+                        </td>
+                        <td>
+                            <%sum=0%>
+                                <%for(i=0;i<data1.length;i++){%>
+                                    <% sum +=data3[i].theory_marks %>
+                                        <%}%>
+                                            <%= sum%>
+                        </td>
+
+
+                        <!-- total -->
+                        <td>
+                            <% total_marks=0%>
+                                <%for(i=0;i<data1.length;i++){%>
+                                    <% total_marks +=data1[i].total_p + data2[i].total_p+data3[i].total_p +
+                                        data1[i].total_th+data2[i].total_th+data3[i].total_th %>
+                                        <%}%>
+                                            <%= total_marks%>
+                        </td>
+                        <td>
+                            <% total_obtain=0%>
+                                <%for(i=0;i<data1.length;i++){%>
+                                    <% total_obtain +=data1[i].prac_marks + data2[i].prac_marks+data3[i].prac_marks +
+                                        data1[i].theory_marks+data2[i].theory_marks+data3[i].theory_marks %>
+                                        <%}%>
+                                            <%= total_obtain%>
+                        </td>
+
+                    </tr>
+        </tbody>
+    </table>
+
+    <p class="details"> All Over Percentage : <%=(total_obtain /total_marks*100).toFixed(2) %> %
+    </p>
+    <table class="att-table" border="1">
+        <thead>
+            <tr>
+                <th>
+                    TOTAL Days
+                </th>
+                <th>
+                    Present Days
+                </th>
+                <th>
+                    Percentage
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr></tr>
+            <tr>
+                <td>
+                    <%= att[0].days%>
+                </td>
+                <td>
+                    <%= att[0].present%>
+                </td>
+                <td>
+                    <%= (att[0].present/att[0].days)*100%>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p><a href="/result" class="btn">&larr; BACK</a></p>
+
+</body>
+
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>events</title>
+</head>
+
+<body onunload="alert('are you sure ?')">
+
+    <h2>Honey Andharia</h2>
+    <h2>employee id :- 24DEV034</h2>
+    <h3>date : 31-01-2024</h3>
+    <table id="table">
+        <tr>
+            <td>
+                onclick events
+                <button id="oncli" onclick="clickevent()" >click me</button><br>
+                <span id="click"> </span>
+
+
+            </td>
+            <td>
+                ondblclick
+                <button ondblclick="dblclickevent()"> double click here</button>
+                <br>
+                <span id="dblclick"></span>
+            </td>
+            <td>
+                onmousedown - onmouseup
+                <p id="mousedown" onmousedown="mousedown()" onmouseup="mouseup()">
+                    try to click me.......
+                </p>
+
+            </td>
+            <td>
+                mouseenter-mouseleave
+                <p id="mouseenter-leave" onmouseenter="mouseenter()" onmouseleave="mouseleave()">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores, explicabo?
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                onmousemove
+                <p id="mousemove" onmousemove="mousemove()">hey</p>
+            </td>
+            <td id="mouseover">
+                mouseover
+                <p onmouseover="mouseover()"> This is prohibited Area don't fly over here</p>
+            </td>
+            <td>
+                onkeypress
+                <p>press y to win jackpot</p>
+                <input type="text" onkeypress="keypress(event)">
+                <p id="keypre"></p>
+            </td>
+            <td id="keydwn">
+                onkeydown-up
+                <p>press g to chnage bg green prees b to change bg blue</p>
+                <input type="text" onkeydown="keydown(event) " onkeyup="keyup()">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                copy
+                <p oncopy="copy()" ">copy text</p>
+                <p id="copied"></p>
+            </td>
+            <td>
+                cut
+                <p oncut="cut()">cut text</p>
+                <p id="cutted"></p>
+            </td>
+            <td>
+                paste
+                <p>insert answer here</p>
+                <input type="text" onpaste="paste()">
+                <p id="pasted"></p>
+            </td>
+            <td>
+                onblur
+                <p>enter your name : </p>
+                <input type="text" onblur="fun()">
+                <p id="blur"></p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                focus
+                <input type="text" onfocus="focused()">
+                <p id="focused"></p>
+            </td>
+            <td>
+                scroll
+
+                <p style="overflow: scroll; height: 5rem;" onscroll="alert('you scrolled')"> Lorem ipsum dolor sit, amet
+                    consectetur adipisicing elit. Accusamus unde, repellat veritatis quis atque enim ullam aut ea
+                    possimus deserunt blanditiis? At expedita quo, beatae harum fugiat iure excepturi rem nam earum
+                    deleniti, impedit perferendis sint molestiae illum est cupiditate similique temporibus in fuga!
+                    Asperiores praesentium optio possimus dolores ipsum.</p>
+
+            </td>
+            <td>
+                foucusin
+                <input type="text" onfocusin="document.getElementById('focusin').innerHTML='focus in'"
+                    onfocusout="document.getElementById('focusin').innerHTML='focus out'" ">
+                <p id=" focusin"></p>
+
+            </td>
+            <td>
+                new element
+                <p onclick="newele()">click here</p>
+                <div id="newelement">
+
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                newelement by add event listner
+                <p onclick="addevent()"> click here</p>
+
+                <div id="addevent"></div>
+            </td>
+            <td>
+                new element by set setAttribute
+                
+                <p onclick="byattr()"> click here</p>
+
+                <div id="byattr">
+                    
+                </div>
+            </td>
+            <td>
+                <p>select text</p>
+                <input onselect="document.getElementById('selected').innerHTML='text selected'" type="text" value="select me">
+                <p id="selected"></p>
+            </td>
+            <td>
+                drag
+                <input type="text" ondrop="document.getElementById('dragged').innerHTML='you dragged text'" value="drage me to another input field" ondragstart="document.getElementById('dragged').innerHTML='drag started'">
+                <p id="dragged"></p>
+                <input type="text" ondrop="document.getElementById('dragged').innerHTML='you dragged text'" value="drage me to another input field" ondragstart="document.getElementById('dragged').innerHTML='drag started'">
+                <p id="dragged">
+            </td>
+        </tr>
+        
+    </table>
+    <style>
+        #table tr:nth-child(odd)>td:nth-child(even) {
+            background-color: gray;
+
+        }
+
+        #table tr:nth-child(even)>td:nth-child(odd) {
+            background-color: gray;
+
+        }
+
+        #table {
+            justify-content: center;
+            width: 80%;
+            height: 10rem;
+            border: 1px solid black;
+            margin: auto;
+        }
+
+        td {
+            width: 10rem;
+            height: 15rem;
+            justify-content: center;
+        }
+    </style>
+    <script>
+        function clickevent() {
+            document.getElementById("click").innerHTML = "whatt??!!!";
+        }
+        function dblclickevent() {
+            document.getElementById("dblclick").innerHTML = "you agaain??!!!";
+
+        }
+        function mousedown() {
+            document.getElementById("mousedown").innerHTML = "release me!!";
+        }
+        function mouseup() {
+            document.getElementById("mousedown").innerHTML = "try to click me.......";
+        }
+        function mouseenter() {
+            let x = document.getElementById("mouseenter-leave");
+            x.style.backgroundColor = "rgb(122, 154, 182)";
+        }
+        function mouseleave() {
+            document.getElementById("mouseenter-leave").style.backgroundColor = 'rgb(150, 200, 189)';
+        }
+        function mousemove() {
+            document.getElementById("mousemove").innerHTML = "i can see you'r spying on me";
+        }
+        function mouseover() {
+
+            document.getElementById("mouseover").style.backgroundColor = "rgba(255, 79, 79, 0.74)"
+            alert("this is prohibited area!!!!");
+        }
+        function keypress(event) {
+            if (event.key == 'y') {
+                document.getElementById("keypre").innerHTML = "Hahahaa you'r dumb ><";
+            }
+        }
+        function keydown() {
+            if (event.key == 'g') {
+                document.getElementById("keydwn").style.backgroundColor = "rgb(100, 143, 80)";
+            }
+
+            else if (event.key == 'b') {
+                document.getElementById("keydwn").style.backgroundColor = "rgb(86, 110, 241)";
+            }
+        }
+        function keyup() {
+            document.getElementById("keydwn").style.backgroundColor = "white";
+        }
+        function copy() {
+            document.getElementById("copied").innerHTML = "you just copied text";
+        }
+        function cut() {
+
+            document.getElementById("cutted").innerHTML = " you cannot erase it";
+        }
+        function paste() {
+            document.getElementById("pasted").innerHTML = "don't cheat!!!!";
+        }
+        function fun() {
+
+            document.getElementById("blur").innerHTML = "you'r leaving the field";
+        }
+        function focused() {
+            document.getElementById('focused').innerHTML = 'on focus called'
+        }
+        function newele() {
+            let cr_ele = document.createElement("p")
+            let node = document.createTextNode("hey, Im new to this");
+            document.getElementById("newelement").appendChild(cr_ele).appendChild(node);
+        }
+        function addevent() {
+            const cr_ele = document.createElement("p")
+            let node = document.createTextNode("you may click");
+            document.getElementById("addevent").appendChild(cr_ele).appendChild(node);
+            cr_ele.setAttribute("id", "new");
+            cr_ele.addEventListener('click', function() {
+                cr_ele.innerHTML="you clicked";
+            })
+        
+        }
+        function byattr() {
+            const para = document.createElement("p")
+            let node = document.createTextNode("you may click");
+            document.getElementById("byattr").appendChild(para).appendChild(node);
+            para.setAttribute("id", "para");
+            para.setAttribute("onclick","alert('thank you')")
+        
+        }
+        
+    </script>
+</body>
+
+</html>

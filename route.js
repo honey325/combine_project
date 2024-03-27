@@ -47,8 +47,17 @@ router.post('/updatepass',storepass);
 router.get('/kukucube',checkAuth,(req,res)=>{res.render('kukucube/kuku_cube')});
 router.get('/dynamic_table',checkAuth,(req,res)=>{res.render('dynamic_table/dynamic_table')});
 router.get('/tic-tac-toe',checkAuth,(req,res)=>{res.render('tic-tac-toe/tic-tac-toe')});
+router.get('/event',checkAuth,(req,res)=>{res.render('event/event_table')});
 
+// searching grid 
+const show = require('./route/search_grid/show');
 
+router.get('/search_grid',show);
 
+//result
+const result = require('./route/result/result');
+const marks = require('./route/result/marks')
+router.get('/result',result)
+router.get('/result/view',marks)
 
 module.exports = router;

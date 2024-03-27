@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./result.css">
+</head>
+
+<body>
+
+    <p class="head"> Name : Honey Andharia </p>
+    <div class="comp">
+  
+        <div class="arrow">
+            <a href="<%= current2!=1?`/result?page=1` : `javascript:void(0)`%>"  class="btn first"><< </a>
+            <a href="<%= current2>1?`/result?page=${current2-1}` : `javascript:void(0)`%>"  class="btn prev">< </a>
+            <p class="btn"> page = <%= current2%></p>
+            <a href="<%= current2<total2?`/result?page=${current2+1}` : `javascript:void(0)`%>"  class="btn next">></a>
+            <a href="<%= current2!=total2?`/result?page=${total2}` : `javascript:void(0)`%>" class="btn last">>></a>
+        </div>
+
+       
+
+    </div>
+
+    <table class="tbl" border="1">
+        <thead>
+        <tr>
+            <th rowspan="2">ID</th>
+            <th rowspan="2">Name</th>
+            <th colspan="2">Terminal</th>
+            <th colspan="2">Prilimary</th>
+            <th colspan="2">Final</th>
+            <th rowspan="2">Total</th>
+            <th rowspan="2">Obtain</th>
+            <th rowspan="2">Detail</th>
+
+        </tr>
+        <tr>
+            <th>Practical</th>
+            <th>Theory</th>
+            <th>Practical</th>
+            <th>Theory</th>
+            <th>Practical</th>
+            <th>Theory</th>
+        </tr>
+    </thead>
+    <tbody>
+        <%for(i=0;i<data1.length;i++){%>
+            <tr>
+                <td>
+                    <%= data1[i].std_id%>
+                </td>
+                <td>
+                    <%= data1[i].first_name%>
+                </td>
+                <td>
+                    <%= data1[i].prac1%>
+                </td>
+                <td>
+                    <%= data1[i].th1%>
+                </td>
+                <td>
+                    <%= data2[i].prac2%>
+                </td>
+                <td>
+                    <%= data2[i].th2%>
+                </td>
+                <td>
+                    <%= data3[i].prac3%>
+                </td>
+                <td>
+                    <%= data3[i].th3%>
+                </td>
+                <td>
+                    <%= data1[i].prac1_total + data2[i].prac2_total+data3[i].prac3_total +
+                    data1[i].th1_total+data2[i].th2_total+data3[i].th3_total%>
+                </td>
+                <td>
+                    <%= data1[i].prac1 + data2[i].prac2+data3[i].prac3 +
+                    data1[i].th1+data2[i].th2+data3[i].th3 %>
+                </td>
+                <td>
+                    <a href="/result/view<%= `?id=${data1[i].std_id}`%>" class="view">View </a>
+                </td>
+            </tr>
+            <%}%>
+        </tbody>
+    </table>
+
+    <script>
+
+    
+    </script>
+
+
+</body>
+
+</html>
