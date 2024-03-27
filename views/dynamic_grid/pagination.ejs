@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="pagination.css">
+</head>
+<body>
+    
+    <div class="arrow">
+        <%url = pathname+'?'%>
+        <%for(key in query){%>
+            <%if(key=="page"){continue;}%>
+        <% url +=key+'='+query[key]+'&'%>
+        <%}%>
+            
+        <a href="<%= current!=1?`${url}page=1` : `javascript:void(0)`%>"class="page_btn first"><< </a>
+        <a href="<%= current>1?`${url}page=${current-1}` : `javascript:void(0)`%>"class="page_btn prev">< </a>
+        <p class="page_btn"> page = <%= current%></p>
+        <a href="<%= current<total?`${url}page=${current+1}` : `javascript:void(0)`%>"class="page_btn next">></a>
+        <a href="<%= current!=total?`${url}page=${total}` : `javascript:void(0)`%>"class="page_btn last">>></a>
+    </div>
+</body>
+</html>

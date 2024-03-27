@@ -4,7 +4,7 @@ async function activate(req, res) {
     try {
         var code = req.query.code;
         var uname = req.query.uname;
-        sql = `select * from users where uname = '${uname}'`
+        sql = `select * from users_info.users where uname = '${uname}'`
         data = await query(sql);
       
         var d = new Date();
@@ -20,7 +20,8 @@ async function activate(req, res) {
         }
         else if (Math.abs((d - date) / 1000 / 3600) > 3) {
             err = { error: "Your Link has been Expired!! Please Register Again" };
-            sql = `delete from users where uname = '${uname}'`
+            sql = `delete from users_info.users where uname = '${uname}'`
+            data = await query(sql);
             res.render('create_pass', { err })
             return;
         }

@@ -56,8 +56,15 @@ router.get('/search_grid',show);
 
 //result
 const result = require('./route/result/result');
-const marks = require('./route/result/marks')
+const marks = require('./route/result/marks');
+
 router.get('/result',result)
 router.get('/result/view',marks)
+
+
+//dynamic_grid
+const generate = require('./middleware/dynamic_grid/generate');
+router.get('/dynamic_grid',generate,(req,res)=>{res.render('dynamic_grid/home')});
+
 
 module.exports = router;

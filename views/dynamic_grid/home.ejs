@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <p class="ins">Insert any mysql Query </p>
+        <form id="form">
+
+            <input type="text" id="sql" oninput="clear_len()" value="<%= sql%>" name="sql">
+
+
+            <input type="text" value="<%=len%>" name="len" hidden id="len">
+
+            <input type="submit" id="submit" class="btn">
+        </form>
+    </div>
+    <%if(header.length>0){%>
+        <%- include('pagination',{current,total,sql,query,pathname})%>
+            <%}%>
+                <% if(error!="" ){%>
+                    <p id="msg">
+                        <%= error%>
+                    </p>
+                    <%}%>
+                        <%if(header.length>0){%>
+                            <table border="1" class="tbl">
+                                <thead>
+                                    <tr>
+                                        <%for(ele of header){ %>
+                                            <th>
+                                                <%= ele %>
+                                            </th>
+                                            <%}%>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <%for(j=0;j<data.length;j++){ %>
+                                        <tr>
+                                            <%for( ele in data[j]){ %>
+                                                <td>
+                                                    <%= data[j][ele] %>
+
+                                                </td>
+                                                <%}%>
+                                        </tr>
+                                        <%}%>
+                                </tbody>
+
+                            </table>
+                            <%}%>
+                                <script>
+                                    var sql = document.getElementById('sql');
+                                    var len = document.getElementById('len');
+                                    var form = document.getElementById('form');
+
+
+                                    function clear_len() {
+
+                                        len.setAttribute('value', '')
+
+                                    }
+                                    // form.setAttribute("action", `/?sql=${sql.value}&len=${len.value}`);
+
+                                    var order_col = document.getElementById('field');
+                                    var order = document.getElementById('order');
+
+
+                                    url = window.location.href
+                                    var searchparam = new URLSearchParams(url);
+
+                                    if (searchparam.get("order_col") == undefined) {
+                                        searchparam.set("order_col", 'std_id')
+                                    }
+
+                                    if (order_col != null) {
+                                        for (op of order_col) {
+                                            if (op.value == searchparam.get("orderby")) {
+                                                op.setAttribute('selected', 'true');
+                                            }
+                                        }
+                                    }
+                                    if (searchparam.get("order") == undefined) {
+                                        searchparam.set("order", 'asc')
+                                    }
+                                    if (order != null) {
+                                        for (op of order) {
+                                            if (op.value == searchparam.get("order")) {
+                                                op.setAttribute('selected', 'true');
+                                            }
+                                        }
+                                    }
+
+                                </script>
+</body>
+
+</html>
