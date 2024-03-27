@@ -66,5 +66,8 @@ router.get('/result/view',marks)
 const generate = require('./middleware/dynamic_grid/generate');
 router.get('/dynamic_grid',generate,(req,res)=>{res.render('dynamic_grid/home')});
 
+//delimeter search
+const search = require('./route/delimeter/search');
+router.get('/delimeter_search',search)
 
 module.exports = router;

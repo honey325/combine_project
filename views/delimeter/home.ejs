@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/delimeter/delimeter.css">
+</head>
+
+<body>
+    <div class="container">
+        <table id="tbl" border="1">
+            <tr>
+                <th>
+                    Column
+                </th>
+                <th>
+                    Signs
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    First Name
+                </td>
+                <td>
+                    _
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Last Name
+                </td>
+                <td>
+                    ^
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Email
+                </td>
+                <td>
+                    $
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    country
+                </td>
+                <td>
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Phone Number
+                </td>
+                <td>
+                    {
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    City
+                </td>
+                <td>
+                    :
+                </td>
+            </tr>
+        </table>
+        <div class="etc">
+            <div class="form">
+                <form action="/delimeter_search">
+                    <input type="text" name="input" value="<%=query%>" autofocus class="search">
+                    <input type="submit" value="GO">
+                </form>
+            </div><%if(error != ''){%>
+        <p class="error"><%= error%></p>
+    <%}%>
+        </div>
+         
+    </div>
+   <%if(error == ""){%>
+
+    <%if(header.length>0){%>
+        <table border="1" class="tbl">
+            <thead>
+                <tr>
+                    <%for(ele of header){ %>
+                        <th>
+                            <%= ele %>
+                        </th>
+                        <%}%>
+                </tr>
+            </thead>
+            <tbody>
+                <%for(j=0;j<data.length;j++){ %>
+                    <tr>
+                        <%for( ele in data[j]){ %>
+                            <td>
+                                <%= data[j][ele] %>
+
+                            </td>
+                            <%}%>
+                    </tr>
+                    <%}%>
+            </tbody>
+
+        </table>
+        <%}%>
+<%}%>
+</body>
+
+</html>

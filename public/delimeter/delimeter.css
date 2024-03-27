@@ -1,0 +1,35 @@
+
+.container{
+    padding-top: 2rem;
+    display: flex;
+    /* justify-content: center; */
+}
+.etc{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+#tbl{
+    width: 30%;
+}
+
+.search{
+    width: 30rem;
+}
+.form{
+    padding-top: 1rem;
+    margin: 0 auto;
+}
+th {
+    font-weight: normal;
+    text-align: center;
+}
+
+td {
+    text-align: center;
+    
+    padding: 7px 0;
+}
+.error{
+    text-align: center;
+}
