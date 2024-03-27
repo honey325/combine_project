@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tic-tac-toe</title>
+</head>
+
+<body>
+    <h2 style="text-align: center;">Honey Andharia-24DEV034- 05-02-2024</h2>
+     
+    <h1 style="text-align: center;"> Tic-Tac-Toe</h1>
+    
+    <p style="text-align: center;">user1 = O and user2 = X </p>
+     <div style="display: flex;width: 20rem;justify-content:center;margin: auto;"><span id="result"> </span> <a id="restart" onclick="restart()"> Restart</a></div> 
+    <br>
+     <table id="tbl" border="1">
+        <tr id="1">
+            <td id="c1">
+
+            </td>
+            <td id="c2">
+
+            </td>
+            <td id="c3">
+
+            </td>
+        </tr>
+        <tr id="2">
+            <td id="c4">
+
+            </td>
+            <td id="c5">
+
+            </td>
+            <td id="c6">
+
+            </td>
+        </tr>
+        <tr id="3">
+            <td id="c7">
+
+            </td>
+            <td id="c8">
+
+            </td>
+            <td id="c9">
+
+            </td>
+        </tr>
+    </table>
+    <br>
+
+
+
+    <style>
+        #restart{
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+            background-color: rgb(98, 98, 100);
+            display: none;
+            color: white;
+            font-weight: bold;
+            width: 8rem;
+            border: 1px solid black;
+            border-radius: 5%;
+            cursor: pointer;
+            text-align: center;
+            
+        }
+        #result {
+            /* justify-content: center; */
+            text-align: center;
+            width: 10rem;
+            height: 3rem;
+            /* background-color:rgba(0, 0, 0, 0.24); */
+            margin: auto;
+            align-items: center;
+            display: grid;
+            font-size: large;
+        }
+
+        #tbl {
+            /* width: 25rem; */
+            /* height: 25rem; */
+            background: rgb(191, 188, 199);
+            margin: auto;
+        }
+
+        td {
+            background-color: rgb(103, 99, 117);
+            color: white;
+            height: 8rem;
+            width: 8rem;
+            text-align: center;
+            align-items: center;
+        }
+
+        body {
+            background-color: rgb(191, 188, 199);
+        }
+    </style>
+    <script>
+
+        function restart(){
+            
+            location.reload();
+        }
+        for (let i = 0; i < 9; i++) {
+            var ci = document.getElementById("c" + i);
+
+        }
+        console.log(c4);
+        // var matrix = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+        tds = document.querySelectorAll("td");
+        for (td of tds) {
+            td.setAttribute("onclick", 'clickevent()')
+        }
+        var is_win = 0;
+        var count = 0;
+        function clickevent() {
+
+            var cell = event.target;
+            if (cell.innerHTML != 'O' && cell.innerHTML != 'X' && is_win == 0) {
+
+                if (count % 2 == 0) {
+                    cell.innerHTML = 'O';
+                    cell.value = 0;
+                    check_win();
+                }
+
+                else {
+                    cell.innerHTML = 'X';
+                    cell.value = 1;
+                    check_win();
+                }
+                count++;
+
+            }
+            else {
+
+            }
+
+        }
+
+
+        function check_win() {
+            // console.log(c1.value)
+            var result = document.getElementById("result");
+            // result.innerHTML = "hello";
+            // console.log(c1.innerText);
+            // console.log(c2.innerText);
+            // console.log(c3.innerText);
+
+            if ((c1.innerText === c2.innerText) && c2.innerText === c3.innerText && c1.innerText != '') {
+                result.innerText = c1.innerText + " wins";
+                is_win = 1;
+                document.getElementById("restart").style.display="block";
+            }
+            else if ((c4.innerText === c5.innerText) && c5.innerText === c6.innerText && c4.innerText != '') {
+                result.innerText = c4.innerText + " wins";
+                is_win = 1;
+                document.getElementById("restart").style.display="block"
+            }
+            else if ((c7.innerText === c8.innerText) && c8.innerText === c9.innerText && c7.innerText != '') {
+                result.innerText = c7.innerText + " wins";
+                is_win = 1;
+                document.getElementById("restart").style.display="block"
+            }
+            else if ((c1.innerText === c4.innerText) && c4.innerText === c7.innerText && c1.innerText != '') {
+                result.innerText = c1.innerText + " wins";
+                is_win = 1;
+                document.getElementById("restart").style.display="block"
+            }
+            else if ((c2.innerText === c5.innerText) && c5.innerText === c8.innerText && c2.innerText != '') {
+                result.innerText = c2.innerText + " wins";
+                is_win = 1;
+                document.getElementById("restart").style.display="block"
+            }
+            else if ((c3.innerText === c6.innerText) && c6.innerText === c9.innerText && c3.innerText != '') {
+                result.innerText = c3.innerText + " wins";
+                is_win = 1;
+                document.getElementById("restart").style.display="block"
+            }
+            else if ((c1.innerText === c5.innerText) && c5.innerText === c9.innerText && c1.innerText != '') {
+                result.innerText = c1.innerText + " wins";
+                is_win = 1;
+                document.getElementById("restart").style.display="block"
+            }
+            else if ((c3.innerText === c5.innerText) && c5.innerText === c7.innerText && c3.innerText != '') {
+                result.innerText = c3.innerText + " wins";
+                is_win = 1;
+                document.getElementById("restart").style.display="block"
+            }
+            else if(count == 8){
+                result.innerText = "Draw";
+                document.getElementById("restart").style.display="block"
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+body {
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('./bg.jpg');
+    background-size: cover;
+    width: 100%;
+   
+}
+
+* {
+    font-family: "Madimi One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+.form {
+    padding: 1rem 5rem;
+    margin-top: 2rem;
+    /* padding: 0 30px;     */
+    border: 1px solid;
+    border-radius: 12px;
+    background-color: #000000ba;
+    color: white;
+    width: 24rem;
+}
+
+td {
+    /* text-align: center; */
+    padding: 1rem 0;
+}
+
+input {
+    background-color: #fdfdfd26;
+    width: 11rem;
+    padding: 0 10px;
+    height: 26px;
+    border-radius: 12px;
+    color: white;
+    margin-bottom: 3px;
+}
+
+.small,.small a {
+    text-align: center;
+    text-decoration: underline;
+    color: white;
+    /* font-weight: bold; */
+    margin-left: 10px;
+}
+.btn {
+    background-color: #25a61d;
+    padding: 0 8rem;
+    border-radius: 9px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    height: 37px;
+    font-size: medium;
+    text-align: center;
+  }
+  #login_link{
+    display: none;
+  }
+  .title2{
+    text-align: center;
+    display: none;
+  }
+#activate_link{
+    display: none;
+    cursor: pointer;
+}
+#error{
+    text-align: center;
+}
+.error{
+    color: #beff9a;
+}
+#register {
+    text-align: center;
+}

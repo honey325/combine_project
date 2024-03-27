@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add ro and col</title>
+</head>
+
+<body>
+    <h2 style="text-align: center;">Honey Andharia-24DEV034- 01-02-2024</h2>
+    <div style="display: flex;">
+        <table id="tbl" border="1">
+            <tbody id="tbody">
+            <tr>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+               
+            </tr>
+            <tr>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+            </tr>
+        </tbody>
+        </table>
+        <div>
+            <a class="btn" onclick="appendcol()">+</a>
+            <a class="btn" onclick="delcol()">-</a>
+        </div>
+    </div>
+    <div>
+        <a class="btn" onclick="appendrow()">+</a>
+        <a class="btn" onclick="delrow()">-</a>
+    </div>
+    <div>
+        <p id="msg">
+
+        </p>
+    </div>
+    <style>
+        .btn {
+            display: inline-flex;
+            border: 1px solid black;
+            width: 2rem;
+            height: 2rem;
+            padding-top :0.5rem;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        
+        /* #tbl {
+            justify-content: center;
+            min-width: 10rem;
+            max-width: 100%;
+            min-height: 10rem;
+            border: 1px solid black;
+            margin: auto;
+        } */
+        #tbl tr:nth-child(odd)>td:nth-child(odd) {
+            background-color: black;
+        }
+
+        #tbl tr:nth-child(even)>td:nth-child(even) {
+            background-color: black;
+        } 
+
+        td {
+            width: 4rem;
+            height: 4rem;
+        }
+    </style>
+
+    <script>
+
+        function appendrow() {
+            document.getElementById("msg").innerHTML = "";
+
+            console.log('row');
+            let col = document.getElementById('tbl').rows[0].cells.length;
+             let tbody = document.getElementById("tbody");
+            // let tbl = document.getElementById("tbl");
+            let row = document.createElement('tr');
+
+            for (let j = 0; j < col; j++) {
+                x=row.insertCell();
+            }
+            // tbl.appendChild(row)
+            tbody.appendChild(row);
+            
+        }
+        function delrow() {
+            let tbl = document.getElementById("tbl");
+            var row = tbl.rows.length;
+            console.log(row);
+            if (row < 3) {
+                document.getElementById("msg").innerHTML = "cannot delete table should contain atleast 2 rows";
+            }
+            else {
+                document.getElementById("msg").innerHTML = "";
+
+                document.getElementById('tbl').deleteRow(row-1);
+            }
+        }
+        function appendcol() {
+            
+            document.getElementById("msg").innerHTML = "";
+
+            let tbl = document.getElementById("tbl");
+            let trs = document.querySelectorAll('#tbl tr');
+            for (let tr of trs) {
+                let td = document.createElement('td');
+                tr.appendChild(td);
+
+            }
+
+        }
+        function delcol() {
+            let tbl = document.getElementById("tbl");
+            let col = tbl.rows[0].cells.length;
+            if (col < 3) {
+                document.getElementById("msg").innerHTML = "cannot delete table should contain atleast 2 columns";
+            }
+            else {
+                document.getElementById("msg").innerHTML = "";
+                let tbl = document.getElementById('tbl');
+                let trs = document.querySelectorAll("#tbl tr");
+                for (tr of trs) {
+                    tr.deleteCell(col-1);
+
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
