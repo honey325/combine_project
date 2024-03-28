@@ -137,7 +137,7 @@ fetching();
 function view(event) {
     // console.log(event.target.parentNode.parentNode.children[0].innerHTML);
     let id = event.target.parentNode.parentNode.children[0].innerHTML;
-    window.location.href = `/post-details?id=${id}`;
+    window.location.href = `/fetch_post/post-details?id=${id}`;
 }
 
 

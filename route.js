@@ -164,4 +164,55 @@ router.get('/fetch_post/post-details',(req,res)=>{
 });
 
 
+
+// multi step job application
+
+var grid2 = require('./middleware/job_appli2/grid');
+router.get('/job_application2',grid2,(req,res)=>{
+    let data = req.data;
+    let data_header = req.data_header;
+    if(req.query.id != undefined){
+       
+        if(req.query.id.length > 3){
+            msg=req.query.id,
+            id = ''
+        }
+        else{msg = ''
+         id = req.query.id}
+    }
+    else{
+        id = '',
+        msg=''
+    }
+    res.render('job_appli2/home', { data, data_header,msg, inserted_id: id, error: '' }) 
+});
+
+const server_val2 = require('./middleware/job_appli2/server_val');
+const insert2 = require('./route/job_appli2/insert');
+
+router.post('/job_application2/insert', server_val2, insert2)
+   
+const getdata2 = require('./middleware/job_appli2/getdata');
+router.get('/job_application2/getdata', getdata2)
+
+router.get('/job_application2/update', grid2, (req, res) => {
+    if (req.query.id == '') {
+        let data = req.data;
+        let data_header = req.data_header;
+        res.render('job_appli2/home', { inserted_id: "",msg:'', error: 'Please insert any id', data, data_header })
+    } else {
+        res.render('job_appli2/form');
+    }
+   
+
+})
+
+const update2 = require('./route/job_appli2/update');
+router.post('/job_application2/update',server_val2,update2)
+
+router.get('/job_application2/insert', (req, res) => {
+    res.render('job_appli2/form')
+})
+
+
 module.exports = router;

@@ -1,0 +1,35 @@
+.btns{
+    cursor: pointer;
+    border: 1px solid black;
+    padding: 5px;
+    background-color: cadetblue;
+}
+#next{
+    margin-left: auto;
+}
+.container{
+    width: 90%;
+    margin: 0 auto;
+}
+#work_exp{
+    display: flex;
+}
+#ref{
+    display: flex;
+}
+
+.icons {
+    background-color: #fbfbfb;
+    font-weight: 800;
+    border: 1px solid;
+    padding: 0 5px;
+    cursor: pointer;
+}
+
+.controls{
+    display: flex;
+    margin-top: 2rem;
+}
+.error{
+    color: red;
+}
