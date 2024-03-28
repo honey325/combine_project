@@ -1,0 +1,39 @@
+td {
+    height: 3rem;
+}
+
+.btn_div {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    /* flex-direction: column; */
+
+}
+
+#btn {
+    background-color: #244179;
+    color: white;
+    padding: 5px 12px;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 9rem;
+    height: 1rem;
+    margin: 0 auto;
+    text-align: center;
+}
+
+img{
+    width: 10rem;
+}
+
+.tbl{
+    width: 90%;
+    margin: 0 auto;
+}
+#comment {
+  
+    width: 75%;
+    margin: 15px auto;
+}
+

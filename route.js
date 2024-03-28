@@ -152,5 +152,16 @@ router.get('/job_application/update',checkAuth,getdata,(req,res)=>{
     res.render('job_appli/form',{data,error:'',inserted_id})
 })
 
+// Api fetch from json placeholder
+
+router.get('/fetch_post/posts',(req,res)=>{
+    res.render('fetch_post/home')
+})
+router.get('/fetch_post/post-details',(req,res)=>{
+    // const id = req.query.id
+    res.render('fetch_post/details')
+    
+});
+
 
 module.exports = router;

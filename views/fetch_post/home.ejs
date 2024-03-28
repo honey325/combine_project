@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+
+<body>
+    <p class="head"> Name : Honey Andharia </p>
+    <input type="text" id="search" placeholder="search here">
+    <input type="button" value="search" onclick="search()">
+    <table id="tbl" border="1">
+
+    </table>
+
+    <div class="arrow">
+        <a class="page_btn" id="first"  onclick="pagination('first')">
+            << </a>
+                <a class="page_btn" id="prev" onclick="pagination('prev')">
+                    < </a>
+                        <p class="page_btn current"> </p>
+                        <a class="page_btn" id="next" onclick="pagination('next')">></a>
+                        <a class="page_btn" id="last" onclick="pagination('last')">>></a>
+    </div>
+
+
+    <script src="./home.js"></script>
+</body>
+
+</html>
