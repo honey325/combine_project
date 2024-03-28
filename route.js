@@ -210,9 +210,20 @@ router.get('/job_application2/update',checkAuth, grid2, (req, res) => {
 const update2 = require('./route/job_appli2/api/update');
 router.post('/job_application2/update',checkAuth,server_val2,update2)
 
-router.get('/job_application2/insert', (req, res) => {
+router.get('/job_application2/insert',checkAuth, (req, res) => {
     res.render('job_appli2/form')
 })
 
+//html task 1
+
+router.get('/html_task1',checkAuth,(req,res)=>{
+    res.render('html_task1/task1')
+})
+router.get('/html_task2',checkAuth,(req,res)=>{
+    res.render('html_task2/task2')
+})
+router.get('/html_task3',checkAuth,(req,res)=>{
+    res.render('html_task3/task3')
+})
 
 module.exports = router;
