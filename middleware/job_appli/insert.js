@@ -24,13 +24,14 @@ async function insert(req, res,next) {
             req.body.dob
         ]
 
-        var basic_detail_sql = `INSERT INTO job_app_db_29.basic_detail (appli_id, first_name, last_name, designation, addr1, addr2, city, state, email, contact, gender, pincode, relationship_status, dob) VALUES (default,?,?,?,?,?,?,?,?,?,?,?,?,?)`;
+        var basic_detail_sql = `INSERT INTO basic_detail (appli_id, first_name, last_name, designation, addr1, addr2, city, state, email, contact, gender, pincode, relationship_status, dob) VALUES (default,?,?,?,?,?,?,?,?,?,?,?,?,?)`;
 
 
         var basic_detail_data = await query(basic_detail_sql, basic_detail);
 
 
-        console.log(basic_detail_data.result.insertId);
+    
+        
 
         var id = basic_detail_data.result.insertId;
 
@@ -58,7 +59,7 @@ async function insert(req, res,next) {
             req.body.ssc_passing,
             req.body.ssc_percent
         ]
-        schooling_sql = `INSERT INTO job_app_db_29.schooling (appli_id, class, board_name, passing_year, percent) VALUES (?, ?, ?, ?, ?);`
+        schooling_sql = `INSERT INTO schooling (appli_id, class, board_name, passing_year, percent) VALUES (?, ?, ?, ?, ?);`
 
         ssc_data = await query(schooling_sql, ssc);
         hsc_data = await query(schooling_sql, hsc);
@@ -82,7 +83,7 @@ async function insert(req, res,next) {
             req.body.bach_percent
         ]
 
-        clg_sql = `INSERT INTO job_app_db_29.clg (appli_id,bech_mast,course,uni, passing_year, percent) VALUES (?,?,?,?,?,?);`
+        clg_sql = `INSERT INTO clg (appli_id,bech_mast,course,uni, passing_year, percent) VALUES (?,?,?,?,?,?);`
 
         clg_data = await query(clg_sql, bachlor);
 
@@ -110,7 +111,7 @@ async function insert(req, res,next) {
 
         //work exp
 
-        work_sql = `INSERT INTO job_app_db_29.work_exp (idx,appli_id, company, design, fr_date, to_date) VALUES (default,?,?,?,?,?);`
+        work_sql = `INSERT INTO work_exp (idx,appli_id, company, design, fr_date, to_date) VALUES (default,?,?,?,?,?);`
         work_data = {}
 
 
@@ -135,7 +136,7 @@ async function insert(req, res,next) {
 
         //language 
 
-        var lang_sql = `INSERT INTO job_app_db_29.lang_kn (appli_id, lang, edu_level) VALUES (?,?,?);`;
+        var lang_sql = `INSERT INTO lang_kn (appli_id, lang, edu_level) VALUES (?,?,?);`;
         var lang_data = [];
         if (req.body.hindi != undefined) {
             for (let i = 1; i < req.body.hindi.length; i++) {
@@ -177,7 +178,7 @@ async function insert(req, res,next) {
 
         // technology
 
-        var tech_sql = `INSERT INTO job_app_db_29.tech_kn (appli_id, tech, kn_level) VALUES (?,?,?);`
+        var tech_sql = `INSERT INTO tech_kn (appli_id, tech, kn_level) VALUES (?,?,?);`
 
 
         var tech_data = [];
@@ -226,7 +227,7 @@ async function insert(req, res,next) {
 
 
         var ref_data = []
-        ref_sql = `INSERT INTO job_app_db_29.ref_cont(idx,appli_id,n_ame,contact,relation) VALUES (default,?,?,?,?);`
+        ref_sql = `INSERT INTO ref_cont(idx,appli_id,n_ame,contact,relation) VALUES (default,?,?,?,?);`
         for (let i = 0; i < req.body.ref_name.length; i++) {
 
             if (req.body.ref_name[i].length != 0) {
@@ -252,7 +253,7 @@ async function insert(req, res,next) {
 
         // prefrance
 
-        pref_sql = `INSERT INTO job_app_db_29.preferance (appli_id, pref_loc_1, pref_loc_2, pref_loc_3, notice_period, expected_ctc, current_ctc, department) VALUES (?,?,?,?,?,?,?,?);`
+        pref_sql = `INSERT INTO preferance (appli_id, pref_loc_1, pref_loc_2, pref_loc_3, notice_period, expected_ctc, current_ctc, department) VALUES (?,?,?,?,?,?,?,?);`
 
         pref = [
             id,

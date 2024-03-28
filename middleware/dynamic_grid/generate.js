@@ -9,8 +9,8 @@ async function generate(req, res) {
     var len =req.query.len;
     
     if (sql == '' || sql == undefined) {
-        sql = ""
-        data = ""
+        sql = "";
+        data = "";
         res.render('dynamic_grid/home', { header: [], data: [], len, sql: sql, pathname: pathname, total: 1, query: req.query, current: 1, error: '' });
     }
 

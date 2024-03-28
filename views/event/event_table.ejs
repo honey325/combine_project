@@ -102,12 +102,13 @@
                     Asperiores praesentium optio possimus dolores ipsum.</p>
 
             </td>
-            <td>
-                foucusin
-                <input type="text" onfocusin="document.getElementById('focusin').innerHTML='focus in'"
-                    onfocusout="document.getElementById('focusin').innerHTML='focus out'" ">
-                <p id=" focusin"></p>
-
+            <td> 
+                drag
+                <input type="text" ondrop="document.getElementById('dragged').innerHTML='you dragged text'" value="drage me to another input field" ondragstart="document.getElementById('dragged').innerHTML='drag started'">
+                <p id="dragged"></p>
+                <input type="text" ondrop="document.getElementById('dragged').innerHTML='you dragged text'" value="drage me to another input field" ondragstart="document.getElementById('dragged').innerHTML='drag started'">
+                <p id="dragged">
+               
             </td>
             <td>
                 new element
@@ -139,11 +140,9 @@
                 <p id="selected"></p>
             </td>
             <td>
-                drag
-                <input type="text" ondrop="document.getElementById('dragged').innerHTML='you dragged text'" value="drage me to another input field" ondragstart="document.getElementById('dragged').innerHTML='drag started'">
-                <p id="dragged"></p>
-                <input type="text" ondrop="document.getElementById('dragged').innerHTML='you dragged text'" value="drage me to another input field" ondragstart="document.getElementById('dragged').innerHTML='drag started'">
-                <p id="dragged">
+               On Change
+               <input type="text" onchange="document.getElementById('change').innerHTML = 'changed'">
+               <p id="change"></p> 
             </td>
         </tr>
         

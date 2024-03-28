@@ -112,7 +112,7 @@
             var ci = document.getElementById("c" + i);
 
         }
-        console.log(c4);
+   
         // var matrix = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
         tds = document.querySelectorAll("td");
         for (td of tds) {
@@ -147,12 +147,10 @@
 
 
         function check_win() {
-            // console.log(c1.value)
+        
             var result = document.getElementById("result");
             // result.innerHTML = "hello";
-            // console.log(c1.innerText);
-            // console.log(c2.innerText);
-            // console.log(c3.innerText);
+           
 
             if ((c1.innerText === c2.innerText) && c2.innerText === c3.innerText && c1.innerText != '') {
                 result.innerText = c1.innerText + " wins";

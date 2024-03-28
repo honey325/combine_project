@@ -1,4 +1,4 @@
-var mysql = require('mysql');
+var con = require('../connect')
 
 function result(req, res) {
 var total2 = 20;
@@ -23,12 +23,7 @@ var total2 = 20;
     }
     var start = (current - 1) * records;
 
-    const con = mysql.createConnection({
-        host: 'localhost',
-        user: "root",
-        password: 'root',
-        database: "db_27_2"
-    });
+    
     var month = req.query.month;
     if (month == undefined) {
         month = 'feb';
@@ -56,8 +51,7 @@ var total2 = 20;
     var data2 = {};
     var data3 = {};
 
-    con.connect(function (err) {
-        if (err) throw err;
+  
 
         //id,name,prac-1,theory-1
         var sql1 = `select std_master.std_id, std_master.first_name, sum(result.prac_marks) as prac1,sum(result.total_p) as prac1_total,sum(result.total_th) as th1_total,sum(result.theory_marks) as th1 from std_master join result on std_master.std_id = result.std_id  where exam_id =1 group by std_id limit ${start},${records}`;
@@ -102,7 +96,7 @@ var total2 = 20;
         //
 
 
-    })
+   
 
 }
 

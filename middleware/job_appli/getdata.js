@@ -2,7 +2,7 @@ var select_sql = require('../../route/job_appli/select_sql');
 
 
 async function getdata(req, res, next) {
-    // console.log(req.query.id);
+   
     var id = req.query.id;
 
     if (id == undefined || id == '') {
@@ -35,7 +35,8 @@ try{
         to_date.push(ele.to_date);
         
     });
-    // console.log(work_id);
+   
+    
 
     var ref_name = [];
     var ref_contact = [];
@@ -49,7 +50,8 @@ try{
         ref_contact.push(ele.contact);
         ref_relation.push(ele.relation);
     });
-    // console.log(ref_id);
+   
+
 
     var lang =[];
     var edu_level =[];
@@ -58,7 +60,7 @@ try{
         lang.push(ele.lang);
         edu_level.push(ele.edu_level);
     });
-    // console.log(basic_detail.result[0].dob);
+    
     var tech =[];
     var kn_level =[];
     tech_kn.result.forEach(ele => {

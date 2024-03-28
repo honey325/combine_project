@@ -22,7 +22,7 @@ function pagination(req, current, records, total) {
             return resolve({ result: data.result, header: data.header });
         }
         catch (err) {
-            return reject(err);
+            return reject(err)
         }
     })
 

@@ -6,7 +6,7 @@ async function updatepass() {
 
             var url = window.location.href.split('=')[2]
             var code = window.location.href.split('=')[1].split('&')[0]
-            console.log(code);
+          
             arr = { "pwd": pass.value, "pwd2": pass2.value,"code":code, "uname": url }
             var response = await fetch('/updatepass', {
                 method: "POST",

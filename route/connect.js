@@ -5,7 +5,7 @@ var con = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'root',
-    // database: `users_info`,
+    database: `final_task`,
     dateStrings :true
 })
 // return con;

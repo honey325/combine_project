@@ -44,6 +44,8 @@ router.get('/forgot', activate)
 const storepass = require('./route/api/storepass');
 router.post('/updatepass', storepass);
 
+//javascript exercise
+
 router.get('/kukucube', checkAuth, (req, res) => { res.render('kukucube/kuku_cube') });
 router.get('/dynamic_table', checkAuth, (req, res) => { res.render('dynamic_table/dynamic_table') });
 router.get('/tic-tac-toe', checkAuth, (req, res) => { res.render('tic-tac-toe/tic-tac-toe') });

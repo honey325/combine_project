@@ -36,7 +36,7 @@ async function register(req, res) {
         req.body.email,
         req.body.contact
     ]
-    var sql = `INSERT INTO users_info.users (user_id, uname, pwd, pwd_salt, activation_code, fname, lname, email,contact,createAt,status) VALUES (default,?,'',?,?,?,?,?,?, current_timestamp(),0);`
+    var sql = `INSERT INTO users (user_id, uname, pwd, pwd_salt, activation_code, fname, lname, email,contact,createAt,status) VALUES (default,?,'',?,?,?,?,?,?, current_timestamp(),0);`
     var data = await query(sql, arr);
 
 

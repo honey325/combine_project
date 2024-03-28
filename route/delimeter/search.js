@@ -167,7 +167,7 @@ function search(req, res) {
     try {
         // fname.length = undefined ? fname = 0 :;
 
-        var sql = `select * from db_27_2.std_master where (first_name like ${first_name_str}) && (last_name like ${last_name_str}) && (city like ${city_str}) && (email like ${email_str}) && (phone1 like ${phone_str}) && (country like ${country_str})`;
+        var sql = `select * from std_master where (first_name like ${first_name_str}) && (last_name like ${last_name_str}) && (city like ${city_str}) && (email like ${email_str}) && (phone1 like ${phone_str}) && (country like ${country_str})`;
         con.query(sql, function (err, result, fields) {
             if (err) throw err;
 

@@ -6,8 +6,8 @@ function server_val(req, res, next) {
     req.body['work_id'] = [];
     req.body['ref_id'] = [];
 
-    console.log(1);
-    console.log(req.body);
+    
+    
 
     function hasNumber(str) {
         return /\d/.test(str); // check if it has number

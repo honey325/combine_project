@@ -84,7 +84,7 @@
         function appendrow() {
             document.getElementById("msg").innerHTML = "";
 
-            console.log('row');
+        
             let col = document.getElementById('tbl').rows[0].cells.length;
              let tbody = document.getElementById("tbody");
             // let tbl = document.getElementById("tbl");
@@ -100,7 +100,7 @@
         function delrow() {
             let tbl = document.getElementById("tbl");
             var row = tbl.rows.length;
-            console.log(row);
+        
             if (row < 3) {
                 document.getElementById("msg").innerHTML = "cannot delete table should contain atleast 2 rows";
             }

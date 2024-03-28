@@ -73,7 +73,7 @@ function validate(current) {
     //pass_year   
 
     var pass_year_field = document.querySelectorAll(`#${table} .pass_year`);
-    // console.log();
+   
     for (field of pass_year_field) {
         var str = "enter value between 1960-2024"
 
@@ -178,7 +178,7 @@ function validate(current) {
     if (table == "lang") {
         // language
         var lang_str = "please check any one language";
-        console.log("page 4");
+        
         var lang = ['hindi[]', 'english[]', 'gujarati[]'];
         var lang_count = 0;
         lang.forEach(lang_name => {
@@ -239,7 +239,6 @@ function validate(current) {
     //     }
     if (table == "tech") {
         // technology
-        console.log('page = 5');
         var tech = ['php[]', 'mysql[]', 'laravel[]', 'oracle[]'];
 
         tech.forEach(tech_name => {
@@ -270,7 +269,7 @@ function validate(current) {
     for (field of require_field) {
         var str = "*field cannot be empty";
         if (field.value == '') {
-            // console.log(field);
+           
             append_error(field, str)
 
             field.focus();

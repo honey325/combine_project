@@ -82,7 +82,8 @@ function print(current_result) {
         keys.forEach(key => {
             let td = document.createElement('td');
             if (key == 'image' || key == 'thumbnail') {
-                // console.log(key);
+               
+                
 
                 let img = document.createElement('img');
                 img.setAttribute('src', `${data[key]}`);
@@ -126,7 +127,7 @@ function print(current_result) {
 async function fetching() {
     const response = await fetch('https://jsonplaceholder.typicode.com/posts');
     result = await response.json();
-    // console.log(Object.keys(result[0]));
+
     keys = Object.keys(result[0]);
     total = Math.ceil(result.length / records);
     current_data = result
@@ -135,7 +136,8 @@ async function fetching() {
 fetching();
 
 function view(event) {
-    // console.log(event.target.parentNode.parentNode.children[0].innerHTML);
+    
+    
     let id = event.target.parentNode.parentNode.children[0].innerHTML;
     window.location.href = `/fetch_post/post-details?id=${id}`;
 }

@@ -1,26 +1,13 @@
-var mysql = require('mysql')
-
+var con = require('../connect');
 function marks(req, res) {
 
 
     id = req.query.id;
 
-
-    const con = mysql.createConnection({
-        host: 'localhost',
-        user: "root",
-        password: 'root',
-        database: "db_27_2"
-    });
-    
-    
     var data1 = {};
     var data2 = {};
     var data3 = {};
 
-
-    con.connect(function (err) {
-        if (err) throw err;
 
         var sql1 = `select sub_master.sub_name,result.prac_marks,result.theory_marks,result.total_p, theory_marks,result.total_th, result.exam_id from result join sub_master on result.sub_id = sub_master.sub_id where result.std_id = ${id} && result.exam_id = 1 ;`
 
@@ -47,10 +34,10 @@ function marks(req, res) {
         con.query(sql1, function (err, result1, fields) {
             if (err) throw err;
             data1 = result1;
-            // console.log(data1)
+           
             // res.render('mark', { data1:data1 , id :id});
         });
-        // console.log(data1);
+        
         con.query(sql2, function (err, result2, fields) {
             if (err) throw err;
             data2 = result2;
@@ -61,6 +48,6 @@ function marks(req, res) {
             data3 = result3;
             res.render('./result/mark', { data1: data1, data2: data2, data3: data3, sta_name: std_name, id: id, att: att });
         });
-    })
+    
 }
 module.exports = marks;

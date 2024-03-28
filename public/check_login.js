@@ -5,6 +5,6 @@ async function check_login(){
     if(result == 1){
         window.location.href = "/dash";
     }
-    console.log(response);
+   
 }
 check_login();

@@ -114,7 +114,7 @@ async function update(req, res, next) {
 
 
 
-    var lang_delete = `delete from job_app_db_29.lang_kn where appli_id = ${id};`;
+    var lang_delete = `delete from lang_kn where appli_id = ${id};`;
     data = await query(lang_delete);
     var lang = [];
     var lang_level = [];

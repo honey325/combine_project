@@ -8,7 +8,7 @@ async function changepass() {
 
         const response = await fetch(`/newpass?uname=${uname2.value}`);
         const result = await response.json();
-        console.log(result.err);
+       
         if (typeof (result) != 'object') {
             var link = document.getElementById('link');
             link.innerHTML = `http://localhost:8080/forgot?code=${result}&uname=${uname2.value}`;

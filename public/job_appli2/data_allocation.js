@@ -11,9 +11,9 @@ if (id != undefined || id != '') {
 async function fetching() {
     const response = await fetch(`/job_application2/getdata?id=${id}`);
 
-    console.log(response);
+   
     result = await response.json();
-    // console.log(result);
+
     if (id != undefined || id != '') {
         map_values(result)
     }
@@ -36,7 +36,7 @@ function map_values(result) {
         textArea[i].innerHTML = result[textArea[i].name];
     }
 
-    // console.log(result);
+  
     // date = new Date(result["dob"])
     var dob = document.getElementById('dob')
     dob.value = result["dob"];
@@ -96,7 +96,7 @@ function map_values(result) {
             document.getElementById(`${lang[i]}`).checked = true;
             var op = document.getElementById(`${lang[i]}_${edu_level[i]}`);
             op.checked = true
-            // console.log(`${lang[i]}_${edu_level[i]}`);
+            
         }
     }
     var tech = result.tech;
@@ -106,13 +106,13 @@ function map_values(result) {
             document.getElementById(`${tech[i]}`).checked = true;
             var op = document.getElementById(`${tech[i]}_${kn_level[i]}`);
             op.checked = true
-            // console.log(`${lang[i]}_${edu_level[i]}`);
+      
         }
     }
 
 
     var work_str = `<table id="work">`
-    console.log(result.length);
+ 
     if (result.work_id.length > 0) {
 
         for (i = 0; i < result.work_id.length; i++) {
@@ -152,7 +152,7 @@ function map_values(result) {
     else if (result.inserted_id.length > 1 && result.work_id.length == 0) {
         document.getElementById('work_div').innerHTML = work_str;
     }
-    // console.log(result.inserted_id.length > 1 && result.work_id.length == 0);
+    
     var ref_str = '<table id="ref_tbl">'
     if (result.ref_id.length > 0) {
         for (i = 0; i < result.work_id.length; i++) {

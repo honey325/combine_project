@@ -22,7 +22,7 @@ function lang_check(event) {
     }
     else if (!event.target.checked) {
         lang = event.target.name;
-        console.log(lang);
+      
         arr = document.getElementsByName(lang);
         arr.forEach(element => {
             if (element == arr[0]) {

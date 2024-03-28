@@ -1,6 +1,7 @@
 
 function reg_val(req, res, next) {
-    console.log(req.body);
+  
+    
 
     function is_string(field){
         return /\d/.test(field)

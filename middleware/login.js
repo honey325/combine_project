@@ -8,7 +8,7 @@ async function login(req, res,next) {
     var uname = req.body.uname;
     var pwd = req.body.pwd;
 
-    sql = `select * from users_info.users where uname = ?`;
+    sql = `select * from users where uname = ?`;
 
     data = await query(sql,uname);
 

@@ -21,6 +21,9 @@
             <input type="submit" id="submit" class="btn">
         </form>
     </div>
+    
+    <!-- att,basic_detail,clg,exam_type,lang_kn,preferance,ref_cont,result,schooling,std_master,sub_master,users,work_expatt,basic_detail,clg,exam_type,lang_kn,preferance,ref_cont,result,schooling,std_master,sub_master,users,work_exp -->
+    
     <%if(header.length>0){%>
         <%- include('pagination',{current,total,sql,query,pathname})%>
             <%}%>
@@ -28,11 +31,11 @@
                     <p id="msg">
                         <%= error%>
                     </p>
-                    <%}%>
-                        <%if(header.length>0){%>
-                            <table border="1" class="tbl">
-                                <thead>
-                                    <tr>
+                <%}%>
+            <%if(header.length>0){%>
+                <table border="1" class="tbl">
+                    <thead>
+                        <tr>
                                         <%for(ele of header){ %>
                                             <th>
                                                 <%= ele %>

@@ -3,7 +3,7 @@ var query = require('../../sql');
 
 async function update(req, res) {
 
-    console.log(req.body);
+   
     var id = req.body.inserted_id;
     var dob = new Date(req.body.dob);
     var basic_detail = [
@@ -25,7 +25,7 @@ async function update(req, res) {
 
     var basic_detail_data = await update_sql(basic_detail, "basic_detail");
 
-    // console.log(basic_detail_data);
+
 
 
     //schooling
@@ -113,7 +113,7 @@ async function update(req, res) {
 
 
 
-    var lang_delete = `delete from job_app_db_29.lang_kn where appli_id = ${id};`;
+    var lang_delete = `delete from lang_kn where appli_id = ${id};`;
     data = await query(lang_delete);
     var lang = [];
     var lang_level = [];
@@ -145,8 +145,7 @@ async function update(req, res) {
     arr.push(lang);
     arr.push(lang_level);
     lang_data = await update_sql(arr, "lang");
-    // console.log(arr[1][1]);
-    console.log(lang_data);
+    
 
     //tech
 
@@ -176,7 +175,7 @@ async function update(req, res) {
     arr.push(tech);
     arr.push(tech_level);
     tech_data = update_sql(arr, "tech");
-    // console.log(arr[1][1]);
+    
 
 
     //ref

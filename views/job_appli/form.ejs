@@ -122,7 +122,7 @@
                 <tr>
                     <td>
                         <label for="dob">Date Of Birth : </label>
-                        <input type="text" class="require date" name="dob"  value="<%=data.dob%>"
+                        <input type="text" class="require date" name="dob" value="<%=data.dob%>"
                             placeholder="yyyy-mm-dd">
                     </td>
                 </tr>
@@ -572,9 +572,12 @@
         }
 
         var dept = document.getElementById('dept');
-        var dept_val = "<%=data.dept%>";
+        var dept_val = "<%=data.dept%>".split(',');
+    
+      
         for (op of dept) {
-            if (op.value == dept_val) {
+
+            if (dept_val.indexOf(op.value) != -1) {
                 op.setAttribute('selected', true);
             }
             else {
@@ -582,19 +585,18 @@
             }
         }
 
-
         var lang_ele = document.getElementsByClassName('lang');
 
         var lang = "<%=data.lang%>".split(',');
         var edu_level = "<%=data.edu_level%>".split(',');
         var lang_str = "<%=data.lang%>"
-        // console.log(lang != null);
+
         if (lang_str.length != 0) {
             for (let i = 0; i < lang.length; i++) {
                 document.getElementById(`${lang[i]}`).checked = true;
                 var op = document.getElementById(`${lang[i]}_${edu_level[i]}`);
                 op.checked = true
-                // console.log(`${lang[i]}_${edu_level[i]}`);
+
             }
         }
         var tech = "<%=data.tech%>".split(',');
@@ -605,7 +607,7 @@
                 document.getElementById(`${tech[i]}`).checked = true;
                 var op = document.getElementById(`${tech[i]}_${kn_level[i]}`);
                 op.checked = true
-                // console.log(`${lang[i]}_${edu_level[i]}`);
+      
             }
         }
 
