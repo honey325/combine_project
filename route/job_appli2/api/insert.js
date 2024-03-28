@@ -1,4 +1,4 @@
-var query = require('../sql');
+var query = require('../../sql');
 var update = require('./update');
 
 async function insert(req, res) {

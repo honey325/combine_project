@@ -14,7 +14,7 @@ async function fetching() {
     console.log(response);
     result = await response.json();
     // console.log(result);
-    if (id != undefined) {
+    if (id != undefined || id != '') {
         map_values(result)
     }
 }
@@ -25,9 +25,8 @@ function map_values(result) {
     var id_input = document.getElementById('inserted_id');
     id_input.setAttribute('value', `${result.inserted_id}`)
 
-    inputs = document.getElementsByClassName('text')
+    inputs = document.getElementsByClassName('text');
 
-    var name;
     for (let i = 0; i < inputs.length; i++) {
         inputs[i].value = result[inputs[i].name];
     }
@@ -37,8 +36,10 @@ function map_values(result) {
         textArea[i].innerHTML = result[textArea[i].name];
     }
 
-
-
+    // console.log(result);
+    // date = new Date(result["dob"])
+    var dob = document.getElementById('dob')
+    dob.value = result["dob"];
     var state = document.getElementById('state');
     var state_val = result.state;
 
@@ -73,10 +74,10 @@ function map_values(result) {
     }
 
     var dept = document.getElementById('dept');
-   
+
     var dept_val = result.dept.split(',');
     for (op of dept) {
-       
+
         if (dept_val.indexOf(op.value) != -1) {
             op.setAttribute('selected', true);
         }
@@ -147,10 +148,11 @@ function map_values(result) {
         document.getElementById('work_div').innerHTML = work_str;
 
     }
-    
+
     else if (result.inserted_id.length > 1 && result.work_id.length == 0) {
         document.getElementById('work_div').innerHTML = work_str;
     }
+    // console.log(result.inserted_id.length > 1 && result.work_id.length == 0);
     var ref_str = '<table id="ref_tbl">'
     if (result.ref_id.length > 0) {
         for (i = 0; i < result.work_id.length; i++) {

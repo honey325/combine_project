@@ -6,7 +6,7 @@ var con = mysql.createConnection({
     user: 'root',
     password: 'root',
     // database: `users_info`,
-    
+    dateStrings :true
 })
 // return con;
 

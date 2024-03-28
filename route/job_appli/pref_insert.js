@@ -5,9 +5,7 @@ function insert(arr, table) {
         pref_data = query(pref_sql, arr);
 
     }
-    if(table == "lang"){
-        
-    }
+  
 }
 
 module.exports = insert

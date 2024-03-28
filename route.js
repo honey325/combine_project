@@ -154,10 +154,10 @@ router.get('/job_application/update',checkAuth,getdata,(req,res)=>{
 
 // Api fetch from json placeholder
 
-router.get('/fetch_post/posts',(req,res)=>{
+router.get('/fetch_post/posts',checkAuth,(req,res)=>{
     res.render('fetch_post/home')
 })
-router.get('/fetch_post/post-details',(req,res)=>{
+router.get('/fetch_post/post-details',checkAuth,(req,res)=>{
     // const id = req.query.id
     res.render('fetch_post/details')
     
@@ -168,7 +168,7 @@ router.get('/fetch_post/post-details',(req,res)=>{
 // multi step job application
 
 var grid2 = require('./middleware/job_appli2/grid');
-router.get('/job_application2',grid2,(req,res)=>{
+router.get('/job_application2',checkAuth,grid2,(req,res)=>{
     let data = req.data;
     let data_header = req.data_header;
     if(req.query.id != undefined){
@@ -188,14 +188,14 @@ router.get('/job_application2',grid2,(req,res)=>{
 });
 
 const server_val2 = require('./middleware/job_appli2/server_val');
-const insert2 = require('./route/job_appli2/insert');
+const insert2 = require('./route/job_appli2/api/insert');
 
-router.post('/job_application2/insert', server_val2, insert2)
+router.post('/job_application2/insert',checkAuth, server_val2, insert2)
    
 const getdata2 = require('./middleware/job_appli2/getdata');
-router.get('/job_application2/getdata', getdata2)
+router.get('/job_application2/getdata',checkAuth, getdata2)
 
-router.get('/job_application2/update', grid2, (req, res) => {
+router.get('/job_application2/update',checkAuth, grid2, (req, res) => {
     if (req.query.id == '') {
         let data = req.data;
         let data_header = req.data_header;
@@ -207,8 +207,8 @@ router.get('/job_application2/update', grid2, (req, res) => {
 
 })
 
-const update2 = require('./route/job_appli2/update');
-router.post('/job_application2/update',server_val2,update2)
+const update2 = require('./route/job_appli2/api/update');
+router.post('/job_application2/update',checkAuth,server_val2,update2)
 
 router.get('/job_application2/insert', (req, res) => {
     res.render('job_appli2/form')

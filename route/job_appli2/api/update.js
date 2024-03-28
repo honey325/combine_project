@@ -1,5 +1,5 @@
-var update_sql = require('./update_sql');
-var query = require('../sql');
+var update_sql = require('../update_sql');
+var query = require('../../sql');
 
 async function update(req, res) {
 
