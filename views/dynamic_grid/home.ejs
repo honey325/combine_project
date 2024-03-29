@@ -23,7 +23,12 @@
         </form>
     </div>
     
-    <!-- att,basic_detail,clg,exam_type,lang_kn,preferance,ref_cont,result,schooling,std_master,sub_master,users,work_expatt,basic_detail,clg,exam_type,lang_kn,preferance,ref_cont,result,schooling,std_master,sub_master,users,work_exp -->
+    <table border="1" class="tbl" id="tables" >
+        <tr><td colspan="3">Available Tables</td></tr>
+        <tr><td>att</td><td>basic_detail</td><td>clg</td></tr>
+        <tr><td>preferance</td><td>result</td><td>std_master</td></tr>
+    </table>
+   
     
     <%if(header.length>0){%>
         <%- include('pagination',{current,total,sql,query,pathname})%>

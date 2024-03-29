@@ -11,12 +11,12 @@ function checkAuth(req, res, next) {
             
         } else {
             // Access Denied
-            res.render('login',{error : "Something went wrong"})
+            res.render('login',{error : "Something went wrong Login Again"})
             // return;
         }
     } catch (error) {
         // Access Denied
-        res.render('login',{error : "Something went wrong"})
+        res.render('login',{error : "Something went wrong Login Again"})
         // return;
     }
 }
