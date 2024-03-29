@@ -14,7 +14,7 @@ async function fetching() {
         else {
             var link = document.getElementById('activate_link');
             link.innerHTML =`http://localhost:8080/activate?code=${result[1]}&uname=${result[0]}`;
-            
+            link.setAttribute('href',`http://localhost:8080/activate?code=${result[1]}&uname=${result[0]}`)
             
 
             link.style.display = "block";

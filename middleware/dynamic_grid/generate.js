@@ -6,8 +6,8 @@ async function generate(req, res) {
 
     var pathname = req.url.split("?")[0]
     var sql = req.query.sql;
-    var len =req.query.len;
-    
+    var len = req.query.len;
+
     if (sql == '' || sql == undefined) {
         sql = "";
         data = "";
@@ -15,31 +15,37 @@ async function generate(req, res) {
     }
 
 
+
     else {
 
         try {
-            if(len==undefined||len==''){
-             data = await query(sql);
-            len = data.result.length;
+            sql = sql.toLowerCase();
+            if ((sql.indexOf('update') == -1 )&& (sql.indexOf('drop') == -1) && (sql.indexOf('truncate') == -1 )&&(sql.indexOf('delete') == -1)&&(sql.indexOf('alter')== -1)&& (sql.indexOf('insert') ==-1)) {
+                if (len == undefined || len == '') {
+                    data = await query(sql);
+                    len = data.result.length;
+                }
+
+                var current = parseInt(req.query.page);
+                var records = 10;
+                var total;
+                if (isNaN(current)) {
+                    current = 1;
+                }
+
+                total = Math.ceil(len / records);
+
+                page = await pagination(req, current, records, total);
+
+                res.render('dynamic_grid/home', { header: page.header, data: page.result, pathname: pathname, len, sql: sql, query: req.query, url: req.url, total: total, current: current, error: '' });
             }
-
-            var current = parseInt(req.query.page);
-            var records = 10;
-            var total;
-            if (isNaN(current)) {
-                current = 1;
+            else{
+                res.render('dynamic_grid/home', { header: [], data: [], sql: '', len, pathname: pathname, current: current, total: total, query: req.query, error: "invalid query" });
             }
-
-            total = Math.ceil(len / records);
-        
-            page = await pagination(req, current, records, total);
-           
-            res.render('dynamic_grid/home', { header: page.header, data: page.result, pathname: pathname, len, sql: sql, query: req.query, url: req.url, total: total, current: current, error: '' });
-
         }
         catch (error) {
-         
-            res.render('dynamic_grid/home', { header: [], data: [], sql: '', len, pathname: pathname, current: current, total: total, query: req.query, error: error.message });
+
+            res.render('dynamic_grid/home', { header: [], data: [], sql: '', len, pathname: pathname, current: current, total: total, query: req.query, error: "invalid query" });
         }
 
     }
