@@ -6,32 +6,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="dash.css">
+
+
 </head>
 
 <body>
-    <div class="container">
-        <h2 id="title">User Dashboard</h2>
 
-        <div class="links">
-            <ul>
-                <li><a href="/kukucube">kukucube</a></li>
-                <li><a href="/tic-tac-toe">tic-tac-toe</a></li>
-                <li><a href="/dynamic_table">dynamic_table</a></li>
-                <li> <a href="/search_grid">Search Grid</a></li>
-                <li><a href="/event">event</a></li>
-                <li> <a href="/result">Result</a></li>
-                <li><a href="/dynamic_grid">Dynamic Grid</a></li>
-                <li><a href="/delimeter_search">Delimeter Search</a></li>
-                <li><a href="/job_application">Job Application Form</a></li>
-                <li><a href="/job_application2">Multi Step Job Application Form</a></li>
-                <li><a href="/html_task1">Template 1</a></li>
-                <li><a href="/html_task2">Template 2</a></li>
-                <li><a href="/html_task3">Template 3</a></li>
-            </ul>
-
-            
+    <header>
+        <div class="nav">
+            <a id="logout" onclick="logout()">LOGOUT</a>
         </div>
-    </div>
+    </header>
+    <main>
+        <div class="container">
+
+
+
+            <h2 id="title">User Dashboard</h2>
+
+            <div class="links">
+                <table class="tbl">
+
+                    <ul>
+                        <tr>
+                            <td>
+                                <li><a class="task" target="_blank" href="/kukucube">KUKUCUBE</a></li>
+                            </td>
+                            <td>
+                                <li><a class="task" target="_blank" href="/tic-tac-toe">Tic Tac Toe</a></li>
+                            </td>
+                            <td>
+                                <li><a class="task" target="_blank" href="/dynamic_table">DYNAMIC TABLE</a></li>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <li><a class="task" target="_blank" href="/event">EVENT</a></li>
+                            </td>
+
+                            <td>
+                                <li> <a class="task" target="_blank" href="/search_grid">SEARCH GRID</a></li>
+                            </td>
+                            <td>
+                                <li> <a class="task" target="_blank" href="/result">RESULT</a></li>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <li><a class="task" target="_blank" href="/dynamic_grid">DYNAMIC GRID</a></li>
+                            </td>
+                            <td>
+                                <li><a class="task" target="_blank" href="/delimeter_search">DELIMETER SEARCH</a></li>
+                            </td>
+                            <td>
+                                <li><a class="task" target="_blank" href="/job_application">JOB APPLICATION FORM</a></li>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <li><a class="task" target="_blank" href="/job_application2">MULTI-STEP JOB APPLICATION FORM</a></li>
+                            </td>
+                            <td>
+                                <li><a class="task" target="_blank" href="/html_task1">TEMPLATE 1</a></li>
+                            </td>
+                            <td>
+                                <li><a class="task" target="_blank" href="/html_task2">TEMPLATE 2</a></li>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <li><a class="task" target="_blank" href="/html_task3">TEMPLATE 3</a></li>
+                            </td>
+                            <td>
+                                <li><a class="task" target="_blank" href="/fetch_post/posts">API FETCH</a></li>
+                            </td>
+                            <td></td>
+                        </tr>
+                    </ul>
+                </table>
+            </div>
+
+        </div>
+    </main>
+<script src="./dash.js"></script>
 </body>
 
 </html>

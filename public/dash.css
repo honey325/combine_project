@@ -5,11 +5,16 @@ body {
 
 }
 
+* {
+    font-family: "Madimi One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
 
 .container {
     background-color: #ffffff;
     width: 85%;
-    margin: 4rem auto;
+    margin: 2rem auto;
     height: 80dvh;
     border: 3px solid #15710f;
     border-radius: 25px;
@@ -18,4 +23,38 @@ body {
 
 #title{
     text-align: center;
+}
+
+.task{
+    text-decoration: none;
+    color: black;
+}
+li{
+    list-style-type: none;
+
+}
+td{
+    width: 33%;
+  padding: 15px 0px;
+  background-color: #ebebeb;
+  border-radius: 9px;
+}
+.tbl{
+    text-align: center;
+    width: 90%;
+    margin: 0 auto;
+}
+#logout{
+    margin-right: 4rem;
+  margin-top: 1rem;
+  background-color: #3cbb34;
+  padding: 10px 19px;
+  border-radius: 15px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+.nav{
+    display: flex;
+    justify-content: end;
 }

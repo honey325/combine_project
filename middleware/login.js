@@ -20,7 +20,7 @@ async function login(req, res,next) {
 
         if (pwd_salt == data.result[0].pwd) {
             const token = jwt.sign({email : data.result[0].email} , process.env.JWT_SECRET_KEY,{
-                expiresIn : '5m'
+                expiresIn : '1h'
             });
             
             res.cookie('token',token);

@@ -2,6 +2,10 @@ const express = require('express')
 const router = express.Router();
 var checkAuth = require('./middleware/checkAuth');
 
+
+var clearcookie = require('./route/api/clearcookie');
+router.get('/logout',clearcookie);
+
 router.get('/', (req, res) => {
     res.render('login', { error: '' });
 });
