@@ -88,10 +88,7 @@
             font-size: large;
         }
 
-        .score {
-            color: aliceblue;
-        }
-
+        
         #timer {
             background-color: rgba(236, 236, 236, 0.541);
         }
@@ -126,12 +123,15 @@
     <script>
         var pause_count= 0;
         var is_pause = 0;
+        var pausebtn = document.getElementById('pause')
         function pause(){
             if(pause_count%2==0){
                 is_pause=1;
+                pausebtn.innerHTML = 'Resume'
             }
             else{
                 is_pause=0;
+                pausebtn.innerHTML = 'Pause'
             }
 
             pause_count++;
