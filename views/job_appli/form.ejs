@@ -2,614 +2,597 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/job_appli/form.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/job_appli/form.css">
 </head>
 
 <body>
-    <%- include('../header')%>
+  <%- include('../header')%>
     <h1>
-        Job Application Form 3
+      Job Application Form 3
     </h1>
     <p class="error server_error">
-        <%= error%>
+      <%= error%>
     </p>
     <p class="error" id="try_err">
 
     </p>
     <form action="/job_application/insert" method="post" name="job_application" id="form" onsubmit="return validate()">
-        <input type="text" name="inserted_id" id="inserted_id" hidden value="<%=inserted_id%>">
-        <fieldset id="bsic_detail" class="field">
-            <legend>Basic Details</legend>
-            <table>
-                <tr>
-                    <td>
+      <input type="text" name="inserted_id" id="inserted_id" hidden value="<%=inserted_id%>">
+      <fieldset id="bsic_detail" class="field">
+        <legend>Basic Details</legend>
+        <table>
+          <tr>
+            <td>
 
-                        <label for="firstname">Firstname: </label>
-                        <input type="text" name="firstname" class="require string" value="<%=data.firstname%>"
-                            id="firstname">
-                    </td>
-                    <td>
-                        <label for="lastname">Lastname : </label>
-                        <input type="text" name="lastname" class="require string" value="<%=data.lastname%>"
-                            id="lastname">
-                    </td>
-                </tr>
-                <tr>
-                    <td> <label for="designation">Designation : </label>
-                        <input type="text" name="designation" class="require string" value="<%=data.designation%>"
-                            id="designation">
-                    </td>
-                    <td>
-                        <label for="Address 1">Address 1 : </label>
-                        <textarea name="addr_1" id="addr_1" cols="30" class="require"
-                            rows="2"><%=data.addr_1%></textarea>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="email">email : </label>
-                        <input type="text" class="require email" value="<%=data.email%>" name="email">
-                        &ensp; &ensp; &ensp; &ensp;
-                    </td>
-                    <td>
-                        <label for="Address 2">Address 2 : </label>
-                        <textarea name="addr_2" id="addr_2" cols="30" class="require"
-                            rows="2"><%=data.addr_2%></textarea>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="contact">Contact : </label>
-                        <input type="text" class="require contact" name="contact" value="<%=data.contact%>"
-                            id="contact">
-                    </td>
-                    <td>
-                        <label for="state">State : </label>
-                        <select name="state" class="require" id="state">
-                            <option value="" selected hidden disabled>select state</option>
-                            <option value="Gujarat">Gujarat</option>
-                            <option value="Rajsthan">Rajsthan</option>
-                            <option value="Tamilnadu">Tamilnadu</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td> <label for="city">City : </label>
-                        <select name="city" class="require string" id="city">
-                            <option value="" selected hidden disabled>select city </option>
-                            <option value="ahmedabad">Ahmedabad</option>
-                            <option value="bhavnagar">bhavnagar</option>
-                            <option value="vadodara">vadodara</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
+              <label for="firstname">Firstname: </label>
+              <input type="text" name="firstname" class="require string" value="<%=data.firstname%>" id="firstname">
+            </td>
+            <td>
+              <label for="lastname">Lastname : </label>
+              <input type="text" name="lastname" class="require string" value="<%=data.lastname%>" id="lastname">
+            </td>
+          </tr>
+          <tr>
+            <td> <label for="designation">Designation : </label>
+              <input type="text" name="designation" class="require string" value="<%=data.designation%>"
+                id="designation">
+            </td>
+            <td>
+              <label for="Address 1">Address 1 : </label>
+              <textarea name="addr_1" id="addr_1" cols="30" class="require" rows="2"><%=data.addr_1%></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="email">email : </label>
+              <input type="text" class="require email" value="<%=data.email%>" name="email">
+              &ensp; &ensp; &ensp; &ensp;
+            </td>
+            <td>
+              <label for="Address 2">Address 2 : </label>
+              <textarea name="addr_2" id="addr_2" cols="30" class="require" rows="2"><%=data.addr_2%></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="contact">Contact : </label>
+              <input type="text" class="require contact" name="contact" value="<%=data.contact%>" id="contact">
+            </td>
+            <td>
+              <label for="state">State : </label>
+              <select name="state" class="require" id="state">
+                <option value="" selected hidden disabled>select state</option>
+                <option value="Gujarat">Gujarat</option>
+                <option value="Rajsthan">Rajsthan</option>
+                <option value="Tamilnadu">Tamilnadu</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td> <label for="city">City : </label>
+              <select name="city" class="require string" id="city">
+                <option value="" selected hidden disabled>select city </option>
+                <option value="ahmedabad">Ahmedabad</option>
+                <option value="bhavnagar">bhavnagar</option>
+                <option value="vadodara">vadodara</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>
 
-                        <div id="gender">
-                            <label for="gender">Gender : </label>
-                            <input type="radio" name="gender" id="male" value="male">
-                            <label for="male">male</label>
-                            <input type="radio" name="gender" id="female" value="female">
-                            <label for="female">female</label>
-                            <input type="radio" name="gender" id="other" value="other">
-                            <label for="other">other</label>
-                        </div>
-                    </td>
-                </tr>
+              <div id="gender">
+                <label for="gender">Gender : </label>
+                <input type="radio" name="gender" id="male" value="male">
+                <label for="male">male</label>
+                <input type="radio" name="gender" id="female" value="female">
+                <label for="female">female</label>
+                <input type="radio" name="gender" id="other" value="other">
+                <label for="other">other</label>
+              </div>
+            </td>
+          </tr>
 
-                <tr>
-                    <td>
-                        <label for="rela_status">Relationship Status : </label>
-                        <select name="rela_status" class="require string" id="rela_status">
-                            <option value="" selected hidden disabled>select</option>
-                            <option value="married">Married</option>
-                            <option value="unmarried">Unmarried</option>
-                            <option value="widow">widow</option>
-                            <option value="divorce">divorce</option>
+          <tr>
+            <td>
+              <label for="rela_status">Relationship Status : </label>
+              <select name="rela_status" class="require string" id="rela_status">
+                <option value="" selected hidden disabled>select</option>
+                <option value="married">Married</option>
+                <option value="unmarried">Unmarried</option>
+                <option value="widow">widow</option>
+                <option value="divorce">divorce</option>
 
-                        </select>
-                    </td>
-                    <td>
-                        <label for="zipcode">Zipcode : </label>
-                        <input type="text" class="require" value="<%=data.zipcode%>" name="zipcode">
-                    </td>
+              </select>
+            </td>
+            <td>
+              <label for="zipcode">Zipcode : </label>
+              <input type="text" class="require" value="<%=data.zipcode%>" name="zipcode">
+            </td>
 
-                </tr>
-                <tr>
-                    <td>
-                        <label for="dob">Date Of Birth : </label>
-                        <input type="text" class="require date" name="dob" value="<%=data.dob%>"
-                            placeholder="yyyy-mm-dd">
-                    </td>
-                </tr>
-            </table>
+          </tr>
+          <tr>
+            <td>
+              <label for="dob">Date Of Birth : </label>
+              <input type="text" class="require date" name="dob" value="<%=data.dob%>" placeholder="yyyy-mm-dd">
+            </td>
+          </tr>
+        </table>
+      </fieldset>
+      <br>
+      <fieldset id="edu_detail" class="field">
+        <legend>Education Details</legend>
+        <table>
+          <tr>
+            <td>
+              <label>SSC Result</label>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+          </tr>
+          <tr>
+            <td>
+              <label for="board">Name Of Board</label>
+              <input type="text" class="require string" value="<%=data.ssc_board%>" name="ssc_board" id="ssc_board">
+            </td>
+            <td>
+              <label for="passing">Passing Year</label>
+              <input type="text" name="ssc_passing" value="<%=data.ssc_passing%>" class="require  pass_year"
+                id="ssc_passing">
+            </td>
+            <td>
+              <label for="percent">Percentage</label>
+              <input type="text" name="ssc_percent" class="require  percent" value="<%=data.ssc_percent%>"
+                id="ssc_percent">
+
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+          </tr>
+          <tr>
+            <td>
+              <label>HSC Result</label>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+          </tr>
+          <tr>
+            <td>
+              <label for="hsc_board">Name Of Board</label>
+              <input type="text" name="hsc_board" value="<%=data.hsc_board%>" class="require string" id="hsc_board">
+            </td>
+            <td>
+              <label for="hsc_passing">Passing Year</label>
+              <input type="text" name="hsc_passing" value="<%=data.hsc_passing%>" class="require  pass_year"
+                id="hsc_passing">
+            </td>
+            <td>
+              <label for="hsc_percent">Percentage</label>
+              <input type="text" name="hsc_percent" class="require  percent" value="<%=data.hsc_percent%>"
+                id="hsc_percent">
+
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+          </tr>
+          <tr>
+            <td>
+              <label>Bachelor Degree</label>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>
+              <label for="course">Cource Name </label>
+              <input type="text" name="bach_cource" value="<%=data.bach_cource%>" class="require string"
+                id="bach_cource">
+            </td>
+            <td>
+              <label for="bach_uni">University</label>
+              <input type="text" name="bach_uni" value="<%=data.bach_uni%>" class="require string" id="bach_uni">
+            </td>
+            <td>
+              <label for="bach_passing">Passing Year</label>
+              <input type="text" name="bach_passing" value="<%=data.bach_passing%>" class="require  pass_year"
+                id="bach_passing">
+            </td>
+            <td>
+              <label for="bach_percent">Percentage</label>
+              <input type="text" name="bach_percent" value="<%=data.bach_percent%>" class="require  percent"
+                id="bach_percent">
+
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+          </tr>
+          <tr>
+            <td>
+              <label>Master Degree</label>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+          </tr>
+          <tr class="require_col">
+            <td>
+              <label for="mast_course">Cource Name </label>
+              <input type="text" name="mast_cource" value="<%=data.mast_cource%>" class="string" id="mast_cource">
+            </td>
+            <td>
+              <label for="mast_uni">University</label>
+              <input type="text" name="mast_uni" value="<%=data.mast_uni%>" class="string" id="mast_uni">
+            </td>
+            <td>
+              <label for="mast_passing">Passing Year</label>
+              <input type="text" name="mast_passing" value="<%=data.mast_passing%>" class=" pass_year"
+                id="mast_passing">
+            </td>
+            <td>
+              <label for="mast_percent">Percentage</label>
+              <input type="text" name="mast_percent" value="<%=data.mast_percent%>" class="  percent" id="mast_percent">
+
+            </td>
+          </tr>
+        </table>
+      </fieldset>
+      <fieldset id="work_exp" class="field">
+        <legend>Work Experience</legend>
+
+        <table id="work">
+          <tbody>
+            <%if(data.comp.length==0 && inserted_id=="" ){%>
+              <%len=2%>
+                <%}else{len=data.comp.length}%>
+                  <%for(i=0;i<len;i++){%>
+                    <tr class="require_col">
+                      <%if(data.work_id.length !=0){%>
+                        <td>
+                          <input type="text" name="work_id[]" hidden value="<%=data.work_id[i]%>">
+                        </td>
+                        <%}%>
+                          <td>
+
+                            <label> Company name : </label>
+                            <input type="text" name="comp[]" value="<%=data.comp[i]%>" id="comp1">
+                          </td>
+                          <td>
+                            <label>Designation : </label>
+                            <input type="text" name="des[]" class="string" value="<%=data.des[i]%>" id="des1">
+                          </td>
+                          <td>
+                            <label>From : </label>
+                            <input type="text" name="from[]" class="date" value="<%=data.from[i]%>" id="from1">
+                          </td>
+                          <td>
+                            <label>To : </label>
+                            <input type="text" name="to[]" class="date" value="<%=data.to[i]%>" id="to1">
+                          </td>
+                          <%}%>
+          </tbody>
+        </table>
+        <%if(inserted_id=="" ){%>
+          <div class="icon_div">
+            <a class="icons" onclick="append_row('work')">+</a>
+            <a class="icons" onclick="delete_row('work')">-</a>
+          </div>
+          <%}%>
+      </fieldset>
+      <br>
+      <div class="tech-lang">
+        <fieldset id="lang">
+          <legend>Language Known</legend>
+          <table>
+            <tr>
+              <td>
+                <input type="checkbox" name="hindi[]" onchange="lang_check(event)" value="hindi" class="lang"
+                  id="hindi">
+                Hindi
+
+                <input type="checkbox" name="hindi[]" class="dis" value="read" id="hindi_read"> Read
+
+                <input type="checkbox" name="hindi[]" class="dis" value="write" id="hindi_write"> Write
+
+                <input type="checkbox" name="hindi[]" class="dis" value="speak" id="hindi_speak"> Speak
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input type="checkbox" name="english[]" onchange="lang_check(event)" class="lang" value="english"
+                  id="english">
+                English
+
+                <input type="checkbox" name="english[]" class="dis" value="read" id="english_read"> Read
+
+                <input type="checkbox" name="english[]" class="dis" value="write" id="english_write"> Write
+
+                <input type="checkbox" name="english[]" class="dis" value="speak" id="english_speak"> Speak
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <input type="checkbox" name="gujarati[]" onchange="lang_check(event)" class="lang" value="gujarati"
+                  id="gujarati"> Gujarati
+
+                <input type="checkbox" name="gujarati[]" class="dis" value="read" id="gujarati_read"> Read
+
+                <input type="checkbox" name="gujarati[]" class="dis" value="write" id="gujarati_write">
+                Write
+
+                <input type="checkbox" name="gujarati[]" class="dis" value="speak" id="gujarati_speak">
+                Speak
+              </td>
+            </tr>
+          </table>
         </fieldset>
-        <br>
-        <fieldset id="edu_detail" class="field">
-            <legend>Education Details</legend>
-            <table>
-                <tr>
-                    <td>
-                        <label>SSC Result</label>
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="board">Name Of Board</label>
-                        <input type="text" class="require string" value="<%=data.ssc_board%>" name="ssc_board"
-                            id="ssc_board">
-                    </td>
-                    <td>
-                        <label for="passing">Passing Year</label>
-                        <input type="text" name="ssc_passing" value="<%=data.ssc_passing%>" class="require  pass_year"
-                            id="ssc_passing">
-                    </td>
-                    <td>
-                        <label for="percent">Percentage</label>
-                        <input type="text" name="ssc_percent" class="require  percent" value="<%=data.ssc_percent%>"
-                            id="ssc_percent">
+        <fieldset id="tech">
+          <legend>Tchnologies you know</legend>
+          <table>
+            <tr>
+              <td>
+                <input type="checkbox" onchange="lang_check(event)" name="php[]" value="php" id="php">
+                Php
 
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>
-                        <label>HSC Result</label>
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="hsc_board">Name Of Board</label>
-                        <input type="text" name="hsc_board" value="<%=data.hsc_board%>" class="require string"
-                            id="hsc_board">
-                    </td>
-                    <td>
-                        <label for="hsc_passing">Passing Year</label>
-                        <input type="text" name="hsc_passing" value="<%=data.hsc_passing%>" class="require  pass_year"
-                            id="hsc_passing">
-                    </td>
-                    <td>
-                        <label for="hsc_percent">Percentage</label>
-                        <input type="text" name="hsc_percent" class="require  percent" value="<%=data.hsc_percent%>"
-                            id="hsc_percent">
+                <input type="radio" name="php[]" value="beginer" class="dis" id="php_beginer"> Beginer
 
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>
-                        <label>Bachelor Degree</label>
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                </tr>
+                <input type="radio" name="php[]" value="mideator" class="dis" id="php_mideator"> Mideator
 
-                <tr>
-                    <td>
-                        <label for="course">Cource Name </label>
-                        <input type="text" name="bach_cource" value="<%=data.bach_cource%>" class="require string"
-                            id="bach_cource">
-                    </td>
-                    <td>
-                        <label for="bach_uni">University</label>
-                        <input type="text" name="bach_uni" value="<%=data.bach_uni%>" class="require string"
-                            id="bach_uni">
-                    </td>
-                    <td>
-                        <label for="bach_passing">Passing Year</label>
-                        <input type="text" name="bach_passing" value="<%=data.bach_passing%>" class="require  pass_year"
-                            id="bach_passing">
-                    </td>
-                    <td>
-                        <label for="bach_percent">Percentage</label>
-                        <input type="text" name="bach_percent" value="<%=data.bach_percent%>" class="require  percent"
-                            id="bach_percent">
+                <input type="radio" name="php[]" value="expert" class="dis" id="php_expert"> Expert
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input type="checkbox" name="mysql[]" onchange="lang_check(event)" value="mysql" id="mysql">
+                Mysql
 
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>
-                        <label>Master Degree</label>
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                </tr>
-                <tr class="require_col">
-                    <td>
-                        <label for="mast_course">Cource Name </label>
-                        <input type="text" name="mast_cource" value="<%=data.mast_cource%>" class="string"
-                            id="mast_cource">
-                    </td>
-                    <td>
-                        <label for="mast_uni">University</label>
-                        <input type="text" name="mast_uni" value="<%=data.mast_uni%>" class="string" id="mast_uni">
-                    </td>
-                    <td>
-                        <label for="mast_passing">Passing Year</label>
-                        <input type="text" name="mast_passing" value="<%=data.mast_passing%>" class=" pass_year"
-                            id="mast_passing">
-                    </td>
-                    <td>
-                        <label for="mast_percent">Percentage</label>
-                        <input type="text" name="mast_percent" value="<%=data.mast_percent%>" class="  percent"
-                            id="mast_percent">
+                <input type="radio" name="mysql[]" value="beginer" class="dis" id="mysql_beginer">
+                Beginer
 
-                    </td>
-                </tr>
-            </table>
+                <input type="radio" name="mysql[]" value="mideator" class="dis" id="mysql_mideator">
+                Mideator
+
+                <input type="radio" name="mysql[]" value="expert" class="dis" id="mysql_expert"> Expert
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <input type="checkbox" onchange="lang_check(event)" name="laravel[]" value="laravel" id="laravel">
+                Laravel
+                <input type="radio" name="laravel[]" value="beginer" class="dis" id="laravel_beginer">
+                Beginer
+
+                <input type="radio" name="laravel[]" value="mideator" class="dis" id="laravel_mideator">
+                Mideator
+
+                <input type="radio" name="laravel[]" value="expert" class="dis" id="laravel_expert">
+                Expert
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input type="checkbox" name="oracle[]" onchange="lang_check(event)" value="oracle" id="oracle">
+                oracle
+
+                <input type="radio" name="oracle[]" value="beginer" class="dis" id="oracle_beginer">
+                Beginer
+
+                <input type="radio" name="oracle[]" value="mideator" class="dis" id="oracle_mideator">
+                Mideator
+
+                <input type="radio" name="oracle[]" value="expert" class="dis" id="oracle_expert">
+                Expert
+              </td>
+            </tr>
+          </table>
         </fieldset>
-        <fieldset id="work_exp" class="field">
-            <legend>Work Experience</legend>
+      </div>
+      <br>
+      <fieldset id="ref" class="field">
+        <legend>Refereance Contact</legend>
+        <table id="ref_tbl">
+          <tbody>
 
-            <table id="work">
-                <tbody>
-                    <%if(data.comp.length==0 && inserted_id=="" ){%>
-                        <%len=2%>
-                            <%}else{len=data.comp.length}%>
-                                <%for(i=0;i<len;i++){%>
-                                    <tr class="require_col">
-                                        <%if(data.work_id.length !=0){%>
-                                            <td>
-                                                <input type="text" name="work_id[]" hidden value="<%=data.work_id[i]%>">
-                                            </td>
-                                            <%}%>
-                                                <td>
-
-                                                    <label> Company name : </label>
-                                                    <input type="text" name="comp[]" value="<%=data.comp[i]%>"
-                                                        id="comp1">
-                                                </td>
-                                                <td>
-                                                    <label>Designation : </label>
-                                                    <input type="text" name="des[]" class="string"
-                                                        value="<%=data.des[i]%>" id="des1">
-                                                </td>
-                                                <td>
-                                                    <label>From : </label>
-                                                    <input type="text" name="from[]" class="date"
-                                                        value="<%=data.from[i]%>" id="from1">
-                                                </td>
-                                                <td>
-                                                    <label>To : </label>
-                                                    <input type="text" name="to[]" class="date" value="<%=data.to[i]%>"
-                                                        id="to1">
-                                                </td>
-                                                <%}%>
-                </tbody>
-            </table>
-            <%if(inserted_id=="" ){%>
-                <div class="icon_div">
-                    <a class="icons" onclick="append_row('work')">+</a>
-                    <a class="icons" onclick="delete_row('work')">-</a>
-                </div>
-                <%}%>
-        </fieldset>
-        <br>
-        <div class="tech-lang">
-            <fieldset id="lang">
-                <legend>Language Known</legend>
-                <table>
-                    <tr>
+            <%if(data.ref_name.length==0 && inserted_id=="" ){%>
+              <%len=2%>
+                <%}else{len=data.ref_name.length}%>
+                  <%for(i=0;i<len;i++){%>
+                    <tr class="require_col">
+                      <%if(data.ref_id.length !=0){%>
                         <td>
-                            <input type="checkbox" name="hindi[]" onchange="lang_check(event)" value="hindi"
-                                class="lang" id="hindi">
-                            Hindi
-
-                            <input type="checkbox" name="hindi[]" class="dis" value="read" id="hindi_read"> Read
-
-                            <input type="checkbox" name="hindi[]" class="dis" value="write" id="hindi_write"> Write
-
-                            <input type="checkbox" name="hindi[]" class="dis" value="speak" id="hindi_speak"> Speak
+                          <input type="text" name="ref_id[]" value="<%=data.ref_id[i]%>" hidden>
                         </td>
+                        <%}%>
+                          <td>
+                            <label for="ref_name">Name : </label>
+                            <input type="text" name="ref_name[]" class="string " value="<%=data.ref_name[i]%>"
+                              id="ref_name1">
+                          </td>
+                          <td>
+                            <label for="ref_name">Contact number : </label>
+                            <input type="text" name="ref_contact[]" class="contact" value="<%=data.ref_contact[i]%>"
+                              id="contact1">
+                          </td>
+                          <td>
+                            <label for="ref_name">Relation : </label>
+                            <input type="text" name="relation[]" class="string" value="<%=data.relation[i]%>"
+                              id="relation1">
+                          </td>
                     </tr>
-                    <tr>
-                        <td>
-                            <input type="checkbox" name="english[]" onchange="lang_check(event)" class="lang"
-                                value="english" id="english">
-                            English
+                    <%}%>
+          </tbody>
+        </table>
+        <%if(inserted_id=="" ){%>
 
-                            <input type="checkbox" name="english[]" class="dis" value="read" id="english_read"> Read
+          <div class="icon_div">
+            <a class="icons" onclick="append_row('ref')">+</a>
+            <a class="icons" onclick="delete_row('ref')">-</a>
+          </div>
+          <%}%>
+      </fieldset><br>
+      <fieldset id="pref" class="field">
+        <legend>preferance</legend>
+        <table>
 
-                            <input type="checkbox" name="english[]" class="dis" value="write" id="english_write"> Write
+          <tr>
 
-                            <input type="checkbox" name="english[]" class="dis" value="speak" id="english_speak"> Speak
-                        </td>
-                    </tr>
+            <td>
+              Preferance Location :
+            </td>
+            <td> <input type="text" name="pref_loc1" value="<%=data.pref_loc1%>" class="require string" id="pref_loc1"
+                placeholder="preferance 1">
+            </td>
+          </tr>
+          <td></td>
+          <td> <input type="text" name="pref_loc2" value="<%=data.pref_loc2%>" class="require string" id="pref_loc2"
+              placeholder="preferance 2">
+          </td>
+          </tr>
+          <td></td>
+          <td> <input type="text" name="pref_loc3" value="<%=data.pref_loc3%>" class="require string" id="pref_loc3"
+              placeholder="preferance 3">
+          </td>
+          </tr>
 
-                    <tr>
-                        <td>
-                            <input type="checkbox" name="gujarati[]" onchange="lang_check(event)" class="lang"
-                                value="gujarati" id="gujarati"> Gujarati
+        </table>
+        <table>
 
-                            <input type="checkbox" name="gujarati[]" class="dis" value="read" id="gujarati_read"> Read
+          <tr>
+            <td><label>Notice period : </label>
+              <input type="text" name="notice" value="<%=data.notice%>" id="notice">
+            </td>
+          </tr>
+          <tr>
 
-                            <input type="checkbox" name="gujarati[]" class="dis" value="write" id="gujarati_write">
-                            Write
+            <td><label>Expected CTC : </label>
+              <input type="text" name="ctc_exp" value="<%=data.ctc_exp%>" class="require" id="ctc_exp">
+            </td>
+          </tr>
+          <tr>
+            <td><label>Current CTC : </label>
+              <input type="text" name="ctc_cur" value="<%=data.ctc_cur%>" id="ctc_cur">
+            </td>
+          </tr>
 
-                            <input type="checkbox" name="gujarati[]" class="dis" value="speak" id="gujarati_speak">
-                            Speak
-                        </td>
-                    </tr>
-                </table>
-            </fieldset>
-            <fieldset id="tech">
-                <legend>Tchnologies you know</legend>
-                <table>
-                    <tr>
-                        <td>
-                            <input type="checkbox" onchange="lang_check(event)" name="php[]" value="php" id="php">
-                            Php
-
-                            <input type="radio" name="php[]" value="beginer" class="dis" id="php_beginer"> Beginer
-
-                            <input type="radio" name="php[]" value="mideator" class="dis" id="php_mideator"> Mideator
-
-                            <input type="radio" name="php[]" value="expert" class="dis" id="php_expert"> Expert
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="checkbox" name="mysql[]" onchange="lang_check(event)" value="mysql" id="mysql">
-                            Mysql
-
-                            <input type="radio" name="mysql[]" value="beginer" class="dis" id="mysql_beginer">
-                            Beginer
-
-                            <input type="radio" name="mysql[]" value="mideator" class="dis" id="mysql_mideator">
-                            Mideator
-
-                            <input type="radio" name="mysql[]" value="expert" class="dis" id="mysql_expert"> Expert
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <input type="checkbox" onchange="lang_check(event)" name="laravel[]" value="laravel"
-                                id="laravel">
-                            Laravel
-                            <input type="radio" name="laravel[]" value="beginer" class="dis" id="laravel_beginer">
-                            Beginer
-
-                            <input type="radio" name="laravel[]" value="mideator" class="dis" id="laravel_mideator">
-                            Mideator
-
-                            <input type="radio" name="laravel[]" value="expert" class="dis" id="laravel_expert">
-                            Expert
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="checkbox" name="oracle[]" onchange="lang_check(event)" value="oracle"
-                                id="oracle">
-                            oracle
-
-                            <input type="radio" name="oracle[]" value="beginer" class="dis" id="oracle_beginer">
-                            Beginer
-
-                            <input type="radio" name="oracle[]" value="mideator" class="dis" id="oracle_mideator">
-                            Mideator
-
-                            <input type="radio" name="oracle[]" value="expert" class="dis" id="oracle_expert">
-                            Expert
-                        </td>
-                    </tr>
-                </table>
-            </fieldset>
-        </div>
-        <br>
-        <fieldset id="ref" class="field">
-            <legend>Refereance Contact</legend>
-            <table id="ref_tbl">
-                <tbody>
-
-                    <%if(data.ref_name.length==0 && inserted_id=="" ){%>
-                        <%len=2%>
-                            <%}else{len=data.ref_name.length}%>
-                                <%for(i=0;i<len;i++){%>
-                                    <tr class="require_col">
-                                        <%if(data.ref_id.length !=0){%>
-                                            <td>
-                                                <input type="text" name="ref_id[]" value="<%=data.ref_id[i]%>" hidden>
-                                            </td>
-                                            <%}%>
-                                                <td>
-                                                    <label for="ref_name">Name : </label>
-                                                    <input type="text" name="ref_name[]" class="string "
-                                                        value="<%=data.ref_name[i]%>" id="ref_name1">
-                                                </td>
-                                                <td>
-                                                    <label for="ref_name">Contact number : </label>
-                                                    <input type="text" name="ref_contact[]" class="contact"
-                                                        value="<%=data.contact[i]%>" id="contact1">
-                                                </td>
-                                                <td>
-                                                    <label for="ref_name">Relation : </label>
-                                                    <input type="text" name="relation[]" class="string"
-                                                        value="<%=data.relation[i]%>" id="relation1">
-                                                </td>
-                                    </tr>
-                                    <%}%>
-                </tbody>
-            </table>
-            <%if(inserted_id=="" ){%>
-
-                <div class="icon_div">
-                    <a class="icons" onclick="append_row('ref')">+</a>
-                    <a class="icons" onclick="delete_row('ref')">-</a>
-                </div>
-                <%}%>
-        </fieldset><br>
-        <fieldset id="pref" class="field">
-            <legend>preferance</legend>
-            <table>
-
-                <tr>
-
-                    <td>
-                        Preferance Location :
-                    </td>
-                    <td> <input type="text" name="pref_loc1" value="<%=data.pref_loc1%>" class="require string"
-                            id="pref_loc1" placeholder="preferance 1">
-                    </td>
-                </tr>
-                <td></td>
-                <td> <input type="text" name="pref_loc2" value="<%=data.pref_loc2%>" class="require string"
-                        id="pref_loc2" placeholder="preferance 2">
-                </td>
-                </tr>
-                <td></td>
-                <td> <input type="text" name="pref_loc3" value="<%=data.pref_loc3%>" class="require string"
-                        id="pref_loc3" placeholder="preferance 3">
-                </td>
-                </tr>
-
-            </table>
-            <table>
-
-                <tr>
-                    <td><label>Notice period : </label>
-                        <input type="text" name="notice" value="<%=data.notice%>" id="notice">
-                    </td>
-                </tr>
-                <tr>
-
-                    <td><label>Expected CTC : </label>
-                        <input type="text" name="ctc_exp" value="<%=data.ctc_exp%>" class="require" id="ctc_exp">
-                    </td>
-                </tr>
-                <tr>
-                    <td><label>Current CTC : </label>
-                        <input type="text" name="ctc_cur" value="<%=data.ctc_cur%>" id="ctc_cur">
-                    </td>
-                </tr>
-
-            </table>
-            <table>
-                <tr>
-                    <td id="department">
-                        <label for="dept">Department</label>
-                        <select name="dept" multiple class="require" id="dept">
-                            <option value="" selected hidden disabled>select</option>
-                            <option value="Development">Development</option>
-                            <option value="design">Design</option>
-                            <option value="marketing">marketing</option>
-                        </select>
-                    </td>
-                </tr>
-            </table>
-        </fieldset>
-        <br><br>
-        <input type="submit" name="submit" id="submit" value="SUBMIT">
+        </table>
+        <table>
+          <tr>
+            <td id="department">
+              <label for="dept">Department</label>
+              <select name="dept" multiple class="require" id="dept">
+                <option value="" selected hidden disabled>select</option>
+                <option value="Development">Development</option>
+                <option value="design">Design</option>
+                <option value="marketing">marketing</option>
+              </select>
+            </td>
+          </tr>
+        </table>
+      </fieldset>
+      <br><br>
+      <input type="submit" name="submit" id="submit" value="SUBMIT">
     </form>
     <script>
 
-        var url = window.location.href;
-        var id = url.split("=")[1];
-        if (id != undefined) {
+      var url = window.location.href;
+      var id = url.split("=")[1];
+      if (id != undefined) {
 
-            document.getElementById('form').setAttribute('action', "/job_application/update")
+        document.getElementById('form').setAttribute('action', "/job_application/update")
+      }
+
+      var state = document.getElementById('state');
+      var state_val = "<%=data.state%>";
+
+      for (op of state) {
+        if (op.value == state_val) {
+          op.setAttribute('selected', true);
         }
+      }
 
-        var state = document.getElementById('state');
-        var state_val = "<%=data.state%>";
+      var city = document.getElementById('city');
+      var city_val = "<%=data.city%>";
 
-        for (op of state) {
-            if (op.value == state_val) {
-                op.setAttribute('selected', true);
-            }
+      for (op of city) {
+        if (op.value == city_val) {
+          op.setAttribute('selected', true);
         }
+      }
+      var gender = document.getElementsByName('gender');
+      gender_val = "<%=data.gender%>";
 
-        var city = document.getElementById('city');
-        var city_val = "<%=data.city%>";
-
-        for (op of city) {
-            if (op.value == city_val) {
-                op.setAttribute('selected', true);
-            }
+      for (op of gender) {
+        if (op.value == gender_val) {
+          op.checked = true;
         }
-        var gender = document.getElementsByName('gender');
-        gender_val = "<%=data.gender%>";
-
-        for (op of gender) {
-            if (op.value == gender_val) {
-                op.checked = true;
-            }
+      }
+      var rela_status = document.getElementById('rela_status');
+      var rela_val = "<%=data.rela_status%>";
+      for (op of rela_status) {
+        if (op.value == rela_val) {
+          op.setAttribute('selected', true);
         }
-        var rela_status = document.getElementById('rela_status');
-        var rela_val = "<%=data.rela_status%>";
-        for (op of rela_status) {
-            if (op.value == rela_val) {
-                op.setAttribute('selected', true);
-            }
+      }
+
+      var dept = document.getElementById('dept');
+      var dept_val = "<%=data.dept%>".split(',');
+
+
+      for (op of dept) {
+
+        if (dept_val.indexOf(op.value) != -1) {
+          op.setAttribute('selected', true);
         }
-
-        var dept = document.getElementById('dept');
-        var dept_val = "<%=data.dept%>".split(',');
-    
-      
-        for (op of dept) {
-
-            if (dept_val.indexOf(op.value) != -1) {
-                op.setAttribute('selected', true);
-            }
-            else {
-                op.removeAttribute('selected');
-            }
+        else {
+          op.removeAttribute('selected');
         }
+      }
 
-        var lang_ele = document.getElementsByClassName('lang');
+      var lang_ele = document.getElementsByClassName('lang');
 
-        var lang = "<%=data.lang%>".split(',');
-        var edu_level = "<%=data.edu_level%>".split(',');
-        var lang_str = "<%=data.lang%>"
+      var lang = "<%=data.lang%>".split(',');
+      var edu_level = "<%=data.edu_level%>".split(',');
+      var lang_str = "<%=data.lang%>"
 
-        if (lang_str.length != 0) {
-            for (let i = 0; i < lang.length; i++) {
-                document.getElementById(`${lang[i]}`).checked = true;
-                var op = document.getElementById(`${lang[i]}_${edu_level[i]}`);
-                op.checked = true
+      if (lang_str.length != 0) {
+        for (let i = 0; i < lang.length; i++) {
+          document.getElementById(`${lang[i]}`).checked = true;
+          var op = document.getElementById(`${lang[i]}_${edu_level[i]}`);
+          op.checked = true
 
-            }
         }
-        var tech = "<%=data.tech%>".split(',');
-        var kn_level = "<%=data.kn_level%>".split(',');
-        var tech_str = "<%=data.tech%>"
-        if (tech_str.length != 0) {
-            for (let i = 0; i < tech.length; i++) {
-                document.getElementById(`${tech[i]}`).checked = true;
-                var op = document.getElementById(`${tech[i]}_${kn_level[i]}`);
-                op.checked = true
-      
-            }
+      }
+      var tech = "<%=data.tech%>".split(',');
+      var kn_level = "<%=data.kn_level%>".split(',');
+      var tech_str = "<%=data.tech%>"
+      if (tech_str.length != 0) {
+        for (let i = 0; i < tech.length; i++) {
+          document.getElementById(`${tech[i]}`).checked = true;
+          var op = document.getElementById(`${tech[i]}_${kn_level[i]}`);
+          op.checked = true
+
         }
+      }
 
 
 

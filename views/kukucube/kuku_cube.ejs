@@ -2,211 +2,214 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>game</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>game</title>
 
 </head>
 
 <body>
 
-    <%- include('../header')%>
+  <%- include('../header')%>
     <h2 style="text-align: center;">Honey Andharia-24DEV034- 02-02-2024</h2>
-    
+
     <div style="display: flex;margin-top: 2rem;">
-        <span class="score">score:</span> <span id="score" class="score"></span>
-        <span id="timer"></span>
-        <a id="pause" onclick="pause()">Pause </a>
+      <span class="score">score:</span> <span id="score" class="score"></span>
+      <span id="timer"></span>
+      <a id="pause" onclick="pause()">Pause </a>
     </div>
 
     <table id="tbl">
-        <tr>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td id="rand"></td>
-        </tr>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td id="rand"></td>
+      </tr>
     </table>
     <div class="end">
-        <p id="score_end"></p>
-        <a id="playagain" onclick="playagain()">Play again </a>
+      <p id="score_end"></p>
+      <a id="playagain" onclick="playagain()">Play again </a>
     </div>
     <style>
-        .end {
-            justify-content: center;
-        }
+      .end {
+        justify-content: center;
+      }
 
-        #score_end {
-            text-align: center;
-            justify-content: center;
-            font-size: 25px;
-        }
-        #pause{
-            align-items: center;
-            justify-content: center;
-            padding: 12px;
-            background-color: rgb(232, 154, 6);
-            
-            color: white;
-            font-weight: bold;
-            width: 8rem;
-            border: 1px solid black;
-            border-radius: 2%;
-            cursor: pointer;
-            text-align: center;
-            margin-left: 28%;
-        }
-        #playagain {
+      #score_end {
+        text-align: center;
+        justify-content: center;
+        font-size: 25px;
+      }
 
-            align-items: center;
-            justify-content: center;
-            padding: 12px;
-            background-color: rgb(232, 154, 6);
-            ;
-            color: white;
-            font-weight: bold;
-            width: 8rem;
-            display: none;
-            border: 1px solid black;
-            border-radius: 2%;
-            cursor: pointer;
-            text-align: center;
-            margin: auto;
-        }
+      #pause {
+        align-items: center;
+        justify-content: center;
+        padding: 12px;
+        background-color: rgb(232, 154, 6);
 
-        #timer {
-            margin-left: 45%;
-            width: 3rem;
-            display: flex;
-            justify-content: center;
-            text-align: center;
-            border-radius: 50%;
-            border: transparent;
-            align-items: center;
-            font-size: large;
-        }
+        color: white;
+        font-weight: bold;
+        width: 8rem;
+        border: 1px solid black;
+        border-radius: 2%;
+        cursor: pointer;
+        text-align: center;
+        margin-left: 28%;
+      }
 
-        
-        #timer {
-            background-color: rgba(236, 236, 236, 0.541);
-        }
+      #playagain {
 
-        body {
-            background-color: rgb(150, 190, 224);
-        }
+        align-items: center;
+        justify-content: center;
+        padding: 12px;
+        background-color: rgb(232, 154, 6);
+        ;
+        color: white;
+        font-weight: bold;
+        width: 8rem;
+        display: none;
+        border: 1px solid black;
+        border-radius: 2%;
+        cursor: pointer;
+        text-align: center;
+        margin: auto;
+      }
 
-        #tbl {
+      #timer {
+        margin-left: 45%;
+        width: 3rem;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        border-radius: 50%;
+        border: transparent;
+        align-items: center;
+        font-size: large;
+      }
 
-            height: 20rem;
-            width: 20rem;
-            border: 1px solid black;
-            margin-top: 5rem ;
-            margin-left: auto;
-            margin-right: auto;
-        }
 
-        td {
-            border: 1px solid black;
-            padding: 0;
-            border-radius: 5%;
-            min-height: 1rem;
-            min-width: 1rem;
-            background: #ce9191;
-        }
-        
-        #rand {
-            opacity: 0.7;
-        }
+      #timer {
+        background-color: rgba(236, 236, 236, 0.541);
+      }
+
+      body {
+        background-color: rgb(150, 190, 224);
+      }
+
+      #tbl {
+
+        height: 20rem;
+        width: 20rem;
+        border: 1px solid black;
+        margin-top: 5rem;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      td {
+        border: 1px solid black;
+        padding: 0;
+        border-radius: 5%;
+        min-height: 1rem;
+        min-width: 1rem;
+        background: #ce9191;
+      }
+
+      #rand {
+        opacity: 0.7;
+      }
     </style>
     <script>
-        var pause_count= 0;
-        var is_pause = 0;
-        var pausebtn = document.getElementById('pause')
-        function pause(){
-            if(pause_count%2==0){
-                is_pause=1;
-                pausebtn.innerHTML = 'Resume'
-            }
-            else{
-                is_pause=0;
-                pausebtn.innerHTML = 'Pause'
-            }
-
-            pause_count++;
-
+      var pause_count = 0;
+      var is_pause = 0;
+      var pausebtn = document.getElementById('pause')
+      function pause() {
+        if (pause_count % 2 == 0) {
+          is_pause = 1;
+          pausebtn.innerHTML = 'Resume'
+        }
+        else {
+          is_pause = 0;
+          pausebtn.innerHTML = 'Pause'
         }
 
-        function playagain() {
-            location.reload();
+        pause_count++;
+
+      }
+
+      function playagain() {
+        location.reload();
+      }
+      rand.setAttribute("onclick", "clickevent()");
+      let count = 30;
+
+      const timer = setInterval(() => {
+        if (is_pause % 2 == 0) {
+          count--;
+          document.getElementById("timer").innerHTML = count;
+          if (count === 0) { clearInterval(timer); document.getElementById("score_end").innerHTML = "Time's up your score is " + score; document.getElementById("playagain").style.display = "block" }
         }
-        rand.setAttribute("onclick", "clickevent()");
-        let count = 30;
+      }, 1000);
+      var score = 0;
+      function clickevent() {
+        if (count == 0) {
 
-        const timer = setInterval(() => {
-            if(is_pause%2 == 0){
-            count--;
-            document.getElementById("timer").innerHTML = count;
-            if (count === 0) { clearInterval(timer);document.getElementById("score_end").innerHTML = "Time's up your score is " + score; document.getElementById("playagain").style.display = "block" }
-        }}, 1000);
-        var score = 0;
-        function clickevent() {
-            if (count == 0) {
+        } else if (is_pause % 2 == 0) {
+          score++;
+          document.getElementById("score").innerHTML = score;
+          let rand = document.getElementById("rand");
 
-            } else if(is_pause%2 == 0) {
-                score++;
-                document.getElementById("score").innerHTML = score;
-                let rand = document.getElementById("rand");
+          var tbl = document.getElementById("tbl");
 
-                var tbl = document.getElementById("tbl");
-
-                tds = document.querySelectorAll("#tbl td");
+          tds = document.querySelectorAll("#tbl td");
 
 
-                rand.setAttribute("id", "");
-                rand.setAttribute("onclick", "");
+          rand.setAttribute("id", "");
+          rand.setAttribute("onclick", "");
 
-                let len = tbl.rows[0].cells.length;
-                let col = Math.floor(Math.random() * (len));
-                let row = Math.floor(Math.random() * (len));
-                tds[row * col].setAttribute("id", "rand");
-                rand = tds[row * col];
-                rand.setAttribute("onclick", "clickevent()");
-
-
-                // set color 
-                let x = Math.random() * (225);
-                let y = Math.random() * (225);
-                let z = Math.random() * (225);
-                let color = "rgb(" + x + "," + y + "," + z + ")";
-                for (td of tds) {
-                    td.style.backgroundColor = color;
-                }
+          let len = tbl.rows[0].cells.length;
+          let col = Math.floor(Math.random() * (len));
+          let row = Math.floor(Math.random() * (len));
+          tds[row * col].setAttribute("id", "rand");
+          rand = tds[row * col];
+          rand.setAttribute("onclick", "clickevent()");
 
 
-                // append logic
-
-                if (len > 6) {
-
-                }
-                else {
-                    let row = document.createElement("tr");
-                    for (let i = 0; i < len + 1; i++) {
-                        row.insertCell(i).style.backgroundColor = color;
-                    }
-                    let trs = document.querySelectorAll("tr");
-
-                    for (tr of trs) {
-                        td = document.createElement("td");
-                        tr.appendChild(td).style.backgroundColor = color;;
-                    }
-                    tbl.appendChild(row);
+          // set color 
+          let x = Math.random() * (225);
+          let y = Math.random() * (225);
+          let z = Math.random() * (225);
+          let color = "rgb(" + x + "," + y + "," + z + ")";
+          for (td of tds) {
+            td.style.backgroundColor = color;
+          }
 
 
-                }
+          // append logic
+
+          if (len > 6) {
+
+          }
+          else {
+            let row = document.createElement("tr");
+            for (let i = 0; i < len + 1; i++) {
+              row.insertCell(i).style.backgroundColor = color;
             }
+            let trs = document.querySelectorAll("tr");
+
+            for (tr of trs) {
+              td = document.createElement("td");
+              tr.appendChild(td).style.backgroundColor = color;;
+            }
+            tbl.appendChild(row);
+
+
+          }
         }
+      }
 
 
     </script>

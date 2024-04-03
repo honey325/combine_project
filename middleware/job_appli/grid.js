@@ -1,14 +1,14 @@
-var query = require('../../route/sql');
+var query = require('../../controller/sql');
 
-async function grid(req,res,next){
+async function grid(req, res, next) {
 
-    
-    var sql = `select * from basic_detail`;
-    var data = await query(sql);
-  
-    req.data = data.result;
-    req.data_header = data.header
-    next();
+
+  let sql = `select * from basic_detail`;
+  let data = await query(sql);
+
+  req.data = data.result;
+  req.data_header = data.header
+  next();
 
 }
 module.exports = grid

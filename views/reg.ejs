@@ -2,101 +2,101 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="reg.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="reg.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
-        rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
-    <div class="container">
-        <div class="form">
+  <div class="container">
+    <div class="form">
 
-            <h1 id="title1">REGISTER</h1>
-            <h2 class="title2">Thank you For Registration</h2>
-            <p class="title2">Copy Link in URL to Activate Your Account</p>
-            <form method="post" action="/reister" id="register_form">
-                <table id="tbl">
-                    <tr>
+      <h1 id="title1">REGISTER</h1>
+      <h2 class="title2">Thank you For Registration</h2>
+      <p class="title2">Copy Link in URL to Activate Your Account</p>
+      <form method="post" action="/reister" id="register_form">
+        <table id="tbl">
+          <tr>
 
-                        <td>
-                            <label for="fname">USERNAME : </label>
-                        </td>
-                        <td>
-                            <input type="text" name="uname" class="require" id="uname">
-                        </td>
-                    </tr>
-                    <tr>
+            <td>
+              <label for="fname">USERNAME : </label>
+            </td>
+            <td>
+              <input type="text" name="uname" class="require" id="uname">
+            </td>
+          </tr>
+          <tr>
 
-                        <td>
-                            <label for="fname">FIRST NAME : </label>
-                        </td>
-                        <td>
-                            <input type="text" name="fname" class="require string" id="fname">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="lname">LAST NAME : </label>
+            <td>
+              <label for="fname">FIRST NAME : </label>
+            </td>
+            <td>
+              <input type="text" name="fname" class="require string" id="fname">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="lname">LAST NAME : </label>
 
-                        </td>
-                        <td>
-                            <input type="text" name="lname" class="require string" id="lname">
+            </td>
+            <td>
+              <input type="text" name="lname" class="require string" id="lname">
 
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="email">EMAIL : </label>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="email">EMAIL : </label>
 
-                        </td>
-                        <td>
-                            <input type="text" name="email" class="require email" id="email">
+            </td>
+            <td>
+              <input type="text" name="email" class="require email" id="email">
 
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="contact">CONTACT : </label>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="contact">CONTACT : </label>
 
-                        </td>
-                        <td>
-                            <input type="text" name="contact" class="require contact" id="contact">
+            </td>
+            <td>
+              <input type="text" name="contact" class="require contact" id="contact">
 
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" onclick="fetching()" class="btn">
-                            <a>REGISTER </a>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" onclick="fetching()" class="btn">
+              <a>REGISTER </a>
 
-                        </td>
-                    </tr>
-                </table>
+            </td>
+          </tr>
+        </table>
 
-                <p id="error" class="error"></p>
-                <p id="register">
-                    Already Registered ?<a class="small" href="/"> Login </a>
-                </p>
-            </form>
-            <div class="link">
+        <p id="error" class="error"></p>
+        <p id="register">
+          Already Registered ?<a class="small" href="/"> Login </a>
+        </p>
+      </form>
+      <div class="link">
 
-                <p class="small">
-                    <a id="activate_link"> Activate Your Account </a>
-                </p>
-                <p id="act_error" class="error"></p>
-            </div>
+        <p class="small">
+          <a id="activate_link"> Activate Your Account </a>
+        </p>
+        <p id="act_error" class="error"></p>
+      </div>
 
-        </div>
     </div>
-  
-    <script src="./fetching.js"></script>
-    <script src="./reg_val.js"></script>
+  </div>
+
+  <script src="./fetching.js"></script>
+  <script src="./reg_val.js"></script>
 </body>
 
 </html>

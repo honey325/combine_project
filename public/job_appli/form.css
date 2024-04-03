@@ -1,37 +1,41 @@
 body {
-    background-color: whitesmoke;
-  }
+  background-color: whitesmoke;
+}
 
 .tech-lang {
-    justify-content: center;
-    display: flex;
+  justify-content: center;
+  display: flex;
 }
 
 #pref {
-    display: flex;
+  display: flex;
 }
 
 #department {
-    float: right;
+  float: right;
 }
-#work_exp{
-    display: flex;
+
+#work_exp {
+  display: flex;
 }
-#ref{
-    display: flex;
+
+#ref {
+  display: flex;
 }
+
 .icons {
-    background-color: #fbfbfb;
-    font-weight: 800;
-    border: 1px solid;
-    padding: 0 5px;
-    cursor: pointer;
+  background-color: #fbfbfb;
+  font-weight: 800;
+  border: 1px solid;
+  padding: 0 5px;
+  cursor: pointer;
 }
 
 .error {
-    color: red;
-    /* font-size: x-small; */
+  color: red;
+  /* font-size: x-small; */
 }
-.server_error{
-    text-align: center;
+
+.server_error {
+  text-align: center;
 }

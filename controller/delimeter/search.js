@@ -1,25 +1,24 @@
 
-var con = require('../connect')
+var con = require('../../connect')
 
 function search(req, res) {
 
 
-    var first_name = [];
-    var last_name = [];
-    var email = [];
-    var city = [];
-    var country = [];
-    var phone = [];
-    var input = ''
+    let first_name = [];
+    let last_name = [];
+    let email = [];
+    let city = [];
+    let country = [];
+    let phone = [];
+    let input = ''
 
 
-    if (req.query.input == undefined) {
-        // res.render('home', { data: '', header: '', error: '' });
-        // return;
-    }
-    else {
+    // if (req.query.input == undefined) {
+    //     // res.render('home', { data: '', header: '', error: '' });
+    //     // return;
+    // }
+    if (req.query.input != undefined) {
         input = req.query.input;
-
         indexs = []
         var chars = ['_', '^', '$', '{', '}', ':']
         for (i = 0; i < input.length; i++) {
@@ -28,7 +27,6 @@ function search(req, res) {
                 indexs.push(i);
             }
             else {
-
             }
         }
 
@@ -42,7 +40,7 @@ function search(req, res) {
         ]);
 
 
-        values = []
+        let values = []
         for (i = 0; i < indexs.length; i++) {
 
 
@@ -75,12 +73,12 @@ function search(req, res) {
             }
         }
     }
-    first_name_str = '';
-    lirst_name_str = '';
-    email_str = '';
-    phone_str = '';
-    country_str = '';
-    city_str = '';
+    let first_name_str = '';
+    let last_name_str = '';
+    let email_str = '';
+    let phone_str = '';
+    let country_str = '';
+    let city_str = '';
 
 
     if (first_name.length == 0) {
@@ -143,11 +141,6 @@ function search(req, res) {
             phone_str += `|| phone like '%${phone[i]}%'`;
         }
     }
-
-    for (i = 0; i < chars; i++) {
-
-    }
-
     if (country.length == 0) {
         country_str = "'%%'"
     }
@@ -167,7 +160,7 @@ function search(req, res) {
     try {
         // fname.length = undefined ? fname = 0 :;
 
-        var sql = `select * from std_master where (first_name like ${first_name_str}) && (last_name like ${last_name_str}) && (city like ${city_str}) && (email like ${email_str}) && (phone1 like ${phone_str}) && (country like ${country_str})`;
+        let sql = `select * from std_master where (first_name like ${first_name_str}) && (last_name like ${last_name_str}) && (city like ${city_str}) && (email like ${email_str}) && (phone1 like ${phone_str}) && (country like ${country_str})`;
         con.query(sql, function (err, result, fields) {
             if (err) throw err;
 
@@ -183,22 +176,12 @@ function search(req, res) {
                 res.render('delimeter/home', { data, header, query: input, error: '' });
 
             }
-
-
-
         })
-
-
     }
     catch (e) {
         res.render('delimeter/home', { data, header, query: input, error: e });
 
     }
-
-
-
-
-
     // res.render('home', { error: '' });
 
 }

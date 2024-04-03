@@ -4,7 +4,7 @@ var jwt = require('jsonwebtoken');
 function check_login(req, res) {
     try {
 
-        var token = req.cookies.token;
+        let token = req.cookies.token;
 
         const verified = jwt.verify(token, process.env.JWT_SECRET_KEY);
         if (verified) {

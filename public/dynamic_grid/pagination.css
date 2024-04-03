@@ -1,14 +1,14 @@
-.arrow{
-    display: flex;
-    justify-content: center;
+.arrow {
+  display: flex;
+  justify-content: center;
 }
 
-.page_btn{
-    text-decoration: none;
-    display: inline-block;
-    text-align: center;
-    border: 1px solid black;
-    padding: 1rem;
-    color: black;
-    margin: 20px 7px;
+.page_btn {
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  border: 1px solid black;
+  padding: 1rem;
+  color: black;
+  margin: 20px 7px;
 }

@@ -4,7 +4,7 @@ async function newpass(req, res) {
 
     sql2 = `select count(*) as count from users where uname = '${req.query.uname}';`;
 
-    count = await query(sql2);
+    let count = await query(sql2);
 
     if (count.result[0].count != 0) {
         var activation_code = generateUniqueId({

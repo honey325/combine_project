@@ -2,91 +2,92 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/login.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/login.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
-        rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
-    <div class="container">
-        <div class="form">
+  <div class="container">
+    <div class="form">
 
 
-            
-            <form method="post" action="/" onsubmit="return validate()" id="login_form">
-               <h1>LOGIN</h1> <table id="tbl">
-                    <tr>
 
-                        <td>
-                            <label for="uname">USERNAME : </label>
-                        </td>
-                        <td>
-                            <input type="text" name="uname" class="require" id="uname">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="pwd">PASSWORD : </label>
+      <form method="post" action="/" onsubmit="return validate()" id="login_form">
+        <h1>LOGIN</h1>
+        <table id="tbl">
+          <tr>
 
-                        </td>
-                        <td>
-                            <input type="password" name="pwd" class="require" id="pwd">
+            <td>
+              <label for="uname">USERNAME : </label>
+            </td>
+            <td>
+              <input type="text" name="uname" class="require" id="uname">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="pwd">PASSWORD : </label>
 
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <sup class="small" onclick="forgot()">Forgot Password ?</sup>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <input type="submit" id="btn" value="LOGIN">
-                        </td>
-                    </tr>
-                </table>
-            </form>
-            <form action="" id="generate_link">
-                <h2>Find Your Account</h2>
-                <table >
-                    <tr>
+            </td>
+            <td>
+              <input type="password" name="pwd" class="require" id="pwd">
 
-                        <td>
-                            <label for="uname2">USERNAME : </label>
-                        </td>
-                        <td>
-                            <input type="text" name="uname2" class="" id="uname2">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <a id="btn2" onclick="changepass()" >GENERATE LINK</a>
-                        </td>
-                    </tr>
-                </table>
-            </form>
-            <p id="error" class="error">
-                <%=error%>
-            </p>
-            <p >
-                <a  id="link"></a>
-            </p>
-            <p id="register">
-                New User ?<a class="small" href="/register"> Register Your Self</a>
-            </p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <sup class="small" onclick="forgot()">Forgot Password ?</sup>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <input type="submit" id="btn" value="LOGIN">
+            </td>
+          </tr>
+        </table>
+      </form>
+      <form action="" id="generate_link">
+        <h2>Find Your Account</h2>
+        <table>
+          <tr>
 
-        </div>
+            <td>
+              <label for="uname2">USERNAME : </label>
+            </td>
+            <td>
+              <input type="text" name="uname2" class="" id="uname2">
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <a id="btn2" onclick="changepass()">GENERATE LINK</a>
+            </td>
+          </tr>
+        </table>
+      </form>
+      <p id="error" class="error">
+        <%=error%>
+      </p>
+      <p>
+        <a id="link"></a>
+      </p>
+      <p id="register">
+        New User ?<a class="small" href="/register"> Register Your Self</a>
+      </p>
+
     </div>
-    <script src="/check_login.js"></script>
-    <script src="/changepass.js"></script>
-    <script src="/login_val.js"></script>
+  </div>
+  <script src="/check_login.js"></script>
+  <script src="/changepass.js"></script>
+  <script src="/login_val.js"></script>
 </body>
 
 </html>

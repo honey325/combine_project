@@ -2,62 +2,64 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./create_pass.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
-        rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./create_pass.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
-    <div class="container">
-        <div class="form">
-            <%if(!err.error){%>
-           
-            
-           
-            <h1>create Password</h1>
-            <form method="post" action="/pass" id="pass_form">
-                <table id="pass_tbl">
-                    <tr>
+  <div class="container">
+    <div class="form">
+      <%if(!err.error){%>
 
-                        <td>
-                            <label for="pass">PASSWORD : </label>
-                        </td>
-                        <td>
-                            <input type="password" onkeyup="pass_val()" name="pass" class="require" id="pass">
-                        </td>
-                    </tr>
-                    <tr>
 
-                        <td>
-                            <label for="pass2">CONFORM PASSWORD : </label>
-                        </td>
-                        <td>
-                            <input type="password" onkeyup="pass_check()" name="pass2" class="require" id="pass2">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" onclick="updatepass()" class="btn">
-                            <a>REGISTER </a>
 
-                        </td>
-                    </tr>
+        <h1>create Password</h1>
+        <form method="post" action="/pass" id="pass_form">
+          <table id="pass_tbl">
+            <tr>
 
-                </table>
-                <%}%>
+              <td>
+                <label for="pass">PASSWORD : </label>
+              </td>
+              <td>
+                <input type="password" onkeyup="pass_val()" name="pass" class="require" id="pass">
+              </td>
+            </tr>
+            <tr>
 
-                <p id="error" class="error"><%=err.error%></p>
-                <p><a href="/" id="login_link" class="small">login</a></p>
-            </form>
-        </div>
+              <td>
+                <label for="pass2">CONFORM PASSWORD : </label>
+              </td>
+              <td>
+                <input type="password" onkeyup="pass_check()" name="pass2" class="require" id="pass2">
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" onclick="updatepass()" class="btn">
+                <a>REGISTER </a>
+
+              </td>
+            </tr>
+
+          </table>
+          <%}%>
+
+            <p id="error" class="error">
+              <%=err.error%>
+            </p>
+            <p><a href="/" id="login_link" class="small">login</a></p>
+        </form>
     </div>
-    <script src="./pass.js"></script>
-    <script src="./updatepass.js"></script>
+  </div>
+  <script src="./pass.js"></script>
+  <script src="./updatepass.js"></script>
 
 </body>
 

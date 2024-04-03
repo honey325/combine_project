@@ -2,225 +2,235 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/search_grid/display.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/search_grid/display.css">
 
 </head>
 
-<body>  
-    <%- include('../header')%>
+<body>
+  <%- include('../header')%>
     <p class="head"> Name : Honey Andharia </p>
     <div class="comp">
-        <p>Order By : <%= order_field%>, <%= order%>
-        </p>
-        <%if(userid ==0 ){%>
+      <p>Order By : <%= order_field%>, <%= order%>
+      </p>
+      <%if(userid==0 ){%>
         <div class="arrow">
-            <a href="<%= current!=1?`/search_grid?page=1&order_col=${order_field}&order=${order}&userid=${userid}&fname=${fname}&lname=${lname}&days=${days}&total=${total}&condition=${condition}` : `javascript:void(0)`%>" class="btn first"> << </a>
-            <a href="<%= current>1?`/search_grid?page=${current-1}&order_col=${order_field}&order=${order}&userid=${userid}&fname=${fname}&lname=${lname}&days=${days}&total=${total}&condition=${condition}` : `javascript:void(0)`%>" class="btn prev"> < </a>
-            <p class="btn"> page = <%= current%></p>
-            <a href="<%= current<total?`/search_grid?page=${current+1}&order_col=${order_field}&order=${order}&userid=${userid}&fname=${fname}&lname=${lname}&days=${days}&total=${total}&condition=${condition}` : `javascript:void(0)`%>" class="btn next">></a>
-            <a href="<%= current!=total?`/search_grid?page=${total}&order_col=${order_field}&order=${order}&userid=${userid}&fname=${fname}&lname=${lname}&total=${total}&condition=${condition}` : `javascript:void(0)`%>" class="btn last">>></a>
+          <a href="<%= current!=1?`/search_grid?page=1&order_col=${order_field}&order=${order}&userid=${userid}&fname=${fname}&lname=${lname}&days=${days}&total=${total}&condition=${condition}` : `javascript:void(0)`%>"
+            class="btn first">
+            << </a>
+              <a href="<%= current>1?`/search_grid?page=${current-1}&order_col=${order_field}&order=${order}&userid=${userid}&fname=${fname}&lname=${lname}&days=${days}&total=${total}&condition=${condition}` : `javascript:void(0)`%>"
+                class="btn prev">
+                < </a>
+                  <p class="btn"> page = <%= current%>
+                  </p>
+                  <a href="<%= current<total?`/search_grid?page=${current+1}&order_col=${order_field}&order=${order}&userid=${userid}&fname=${fname}&lname=${lname}&days=${days}&total=${total}&condition=${condition}` : `javascript:void(0)`%>"
+                    class="btn next">></a>
+                  <a href="<%= current!=total?`/search_grid?page=${total}&order_col=${order_field}&order=${order}&userid=${userid}&fname=${fname}&lname=${lname}&total=${total}&condition=${condition}` : `javascript:void(0)`%>"
+                    class="btn last">>></a>
         </div>
-       <%}%>
-        <p class="month">month = <%=month_name%></p>
+        <%}%>
+          <p class="month">month = <%=month_name%>
+          </p>
     </div>
     <div class="form">
-        <form class="search" action="/search_grid">
-            
-            <div>
-                UserID : <input type="text" name="std_id" id="std_id"  placeholder="Student ID" autofocus tabindex="1">
-                <input type="submit" value="GO" id="go1" tabindex="2">
-                <a onclick="show()" id="showmore" tabindex="3">Show More</a>
-            </div>
-        </form>
-        <form action="/search_grid">
-            <div id="show">
-                Firstname : <input type="text" tabindex="4" name="fname">
+      <form class="search" action="/search_grid">
 
-                Lastname : <input type="text" tabindex="5" name="lname" >
+        <div>
+          UserID : <input type="text" name="std_id" id="std_id" placeholder="Student ID" autofocus tabindex="1">
+          <input type="submit" value="GO" id="go1" tabindex="2">
+          <a onclick="show()" id="showmore" tabindex="3">Show More</a>
+        </div>
+      </form>
+      <form action="/search_grid">
+        <div id="show">
+          Firstname : <input type="text" tabindex="4" name="fname">
 
-                Present Days : <input type="text" tabindex="6" name="days">
+          Lastname : <input type="text" tabindex="5" name="lname">
 
-                <select name="condition" id="" tabindex="7">
-                    <option value="and" selected tabindex="8">AND</option>
-                    <option value="or">OR</option>
-                </select>
-                <!-- Percent : <input type="text" name="percent"> -->
-                <select name="month" tabindex="9" id="month_name">
-                    <option value="dec">December 2023</option>
-                    <option value="jan">January 2024</option>
-                    <option value="feb">February 2024</option>
-                </select>
-                <input type="submit" id="go2" tabindex="10" value="GO">
+          Present Days : <input type="text" tabindex="6" name="days">
 
-            </div>
-        </form>
+          <select name="condition" id="" tabindex="7">
+            <option value="and" selected tabindex="8">AND</option>
+            <option value="or">OR</option>
+          </select>
+          <!-- Percent : <input type="text" name="percent"> -->
+          <select name="month" tabindex="9" id="month_name">
+            <option value="dec">December 2023</option>
+            <option value="jan">January 2024</option>
+            <option value="feb">February 2024</option>
+          </select>
+          <input type="submit" id="go2" tabindex="10" value="GO">
+
+        </div>
+      </form>
     </div>
-  <p class="details"><%= error %></p>
-<%if(error == ''){%>
-    <table id="tbl" border="1">
+    <p class="details">
+      <%= error %>
+    </p>
+    <%if(error=='' ){%>
+      <table id="tbl" border="1">
         <tr>
-            <%for(ele in header){%>
+          <%for(ele in header){%>
 
-                <th class="header" onclick="sort('<%= header[ele]%>')">
-                    <%=header[ele] %> <span class="up" onclick="s_order(event,'asc')">&uarr;</span><span class="down"
-                            onclick="s_order(event,'desc')">&darr;</span>
-                </th>
+            <th class="header" onclick="sort('<%= header[ele]%>')">
+              <%=header[ele] %> <span class="up" onclick="s_order(event,'asc')">&uarr;</span><span class="down"
+                  onclick="s_order(event,'desc')">&darr;</span>
+            </th>
 
-                <%}%>
+            <%}%>
         </tr>
         <%if(data[0]){%>
-        <%for(ele of data){%>
+          <%for(ele of data){%>
             <tr>
 
-                <td>
-                    <%= ele.std_id%>
-                </td>
-                <td>
-                    <%= ele.first_name%>
-                </td>
-                <td>
-                    <%= ele.last_name%>
-                </td>
-                <td>
-                    <%= ele.days%>
-                </td>
-                <td>
-                    <%= ele.percent.toFixed(2) %>%
-                </td>
+              <td>
+                <%= ele.std_id%>
+              </td>
+              <td>
+                <%= ele.first_name%>
+              </td>
+              <td>
+                <%= ele.last_name%>
+              </td>
+              <td>
+                <%= ele.days%>
+              </td>
+              <td>
+                <%= ele.percent.toFixed(2) %>%
+              </td>
 
             </tr>
-        <%}%>
-        <%}%>
-    </table>
-<%}%>
-    <script>
-        var userid = '<%= userid%>';
-        var fname = '<%=fname%>';
-        var lname = '<%=lname%>';
-        var days= '<%=days%>';
-        var total= '<%=total%>';
-        var condition = '<%= condition%>'
-        var month = '<%=month_name%>'
-        
-        var count = 0
-        var showtr = document.getElementById('show');
+            <%}%>
+              <%}%>
+      </table>
+      <%}%>
+        <script>
+          var userid = '<%= userid%>';
+          var fname = '<%=fname%>';
+          var lname = '<%=lname%>';
+          var days = '<%=days%>';
+          var total = '<%=total%>';
+          var condition = '<%= condition%>'
+          var month = '<%=month_name%>'
 
-        showtr.style.display = 'none';
+          var count = 0
+          var showtr = document.getElementById('show');
 
-        var showmore = document.getElementById('showmore');
-        var std_id = document.getElementById('std_id');
-        var go1 = document.getElementById('go1');
-        var go2 = document.getElementById('go2');
+          showtr.style.display = 'none';
 
-        // var order_col = document.getElementById('field');
-        // var order = document.getElementById('order');
-        var order_col
-        var order
-        var month_name = document.getElementById("month_name");
+          var showmore = document.getElementById('showmore');
+          var std_id = document.getElementById('std_id');
+          var go1 = document.getElementById('go1');
+          var go2 = document.getElementById('go2');
 
-        url = window.location.href
-        var searchparam = new URLSearchParams(url);
-        const map = new Map([
+          // var order_col = document.getElementById('field');
+          // var order = document.getElementById('order');
+          var order_col
+          var order
+          var month_name = document.getElementById("month_name");
+
+          url = window.location.href
+          var searchparam = new URLSearchParams(url);
+          const map = new Map([
             ["ID", 'std_id'],
             ["Name", 'first_name'],
-            ["LastName",'last_name'],
+            ["LastName", 'last_name'],
             ["Present Day", 'days'],
             ["Percentage", "percent"]
-        ]);
+          ]);
 
 
-        if (searchparam.get("month") == undefined) {
+          if (searchparam.get("month") == undefined) {
             searchparam.set("month", 'feb')
 
-        }
-        for (op of month_name) {
+          }
+          for (op of month_name) {
 
             if (op.value == searchparam.get("month")) {
-                op.setAttribute('selected', 'true');
+              op.setAttribute('selected', 'true');
             }
-        }
-        if (searchparam.get("order_col") == undefined && order_col == undefined) {
+          }
+          if (searchparam.get("order_col") == undefined && order_col == undefined) {
             searchparam.set("order_col", 'std_id')
             order_col = 'std_id'
-        }
-        else {
+          }
+          else {
             order_col = searchparam.get("order_col")
-        }
+          }
 
-        if (searchparam.get("order") == undefined && order == undefined) {
+          if (searchparam.get("order") == undefined && order == undefined) {
             searchparam.set("order", 'asc')
             order = 'asc'
-        }
-        else {
+          }
+          else {
             order = searchparam.get("order")
-        }
+          }
 
-        var tbl = document.getElementById('tbl');
-        var ths = document.querySelectorAll('#tbl th');
-        var down_arrows = document.querySelectorAll(".down");
+          var tbl = document.getElementById('tbl');
+          var ths = document.querySelectorAll('#tbl th');
+          var down_arrows = document.querySelectorAll(".down");
 
-        for (i = 0; i < ths.length; i++) {
+          for (i = 0; i < ths.length; i++) {
 
             if (order_col == map.get(ths[i].innerHTML.split('<')[0].trim())) {
 
-                var arr = ths[i].children;
-                if (order == 'asc') {
-                    select = arr[0];
-                }
-                else {
-                    select = arr[1];
-                }
-               
-                select.style.border = '2px solid black';
-                select.style.fontWeight = 'bolder';
+              var arr = ths[i].children;
+              if (order == 'asc') {
+                select = arr[0];
+              }
+              else {
+                select = arr[1];
+              }
+
+              select.style.border = '2px solid black';
+              select.style.fontWeight = 'bolder';
 
             }
 
 
-        }
+          }
 
-        function sort(col) {
+          function sort(col) {
             order_col = map.get(col);
             location.href = `/search_grid?page=1&order_col=${order_col}&order=asc&month=${month}&userid=${userid}&fname=${fname}&lname=${lname}&days=${days}&total=${total}&condition=${condition}`;
-         
-        }
-        function s_order(event, ord) {
+
+          }
+          function s_order(event, ord) {
             order = ord;
             event.cancelBubble = true;
             order_col = map.get(event.target.parentNode.innerHTML.split('<')[0].trim());
             location.href = `/search_grid?page=1&order_col=${order_col}&order=${order}&month=${month}&userid=${userid}&fname=${fname}&lname=${lname}&days=${days}&total=${total}&condition=${condition}`;
-           
-        }
-        // function enter() {
 
-        //     location.href = `/?page=1&order_col=${order_col}&order=${order}&month=${month}&userid=${userid}&fname=${fname}&lname=${lname}&days=${days}&total=${total}`;
+          }
+          // function enter() {
 
-        // }
+          //     location.href = `/?page=1&order_col=${order_col}&order=${order}&month=${month}&userid=${userid}&fname=${fname}&lname=${lname}&days=${days}&total=${total}`;
 
-
+          // }
 
 
-        function show() {
+
+
+          function show() {
 
             if (count % 2 == 0) {
-                showtr.style.display = 'flex';
-                showmore.innerHTML = 'Show Less';
-                std_id.setAttribute('disabled',true);
-                go1.setAttribute('disabled',true);
+              showtr.style.display = 'flex';
+              showmore.innerHTML = 'Show Less';
+              std_id.setAttribute('disabled', true);
+              go1.setAttribute('disabled', true);
             }
             else {
-                showtr.style.display = 'none';
-                showmore.innerHTML = 'Show More';
-                std_id.removeAttribute("disabled")
-                go1.removeAttribute("disabled")
+              showtr.style.display = 'none';
+              showmore.innerHTML = 'Show More';
+              std_id.removeAttribute("disabled")
+              go1.removeAttribute("disabled")
 
             }
             count++;
-        }
-    </script>
+          }
+        </script>
 
 
 </body>

@@ -6,8 +6,8 @@ function pagination(req, current, records, total) {
     return new Promise(async (resolve, reject) => {
         try {
 
-            var start = (current - 1) * records;
-            sql = req.query.sql
+            let start = (current - 1) * records;
+            let sql = req.query.sql
             // sql = sql + ` limit ${start},${records}`;
 
             sql = sql.split(';')[0]
@@ -18,7 +18,7 @@ function pagination(req, current, records, total) {
                 sql = sql + ` limit ${start},${records}`
             }
 
-            data = await query(sql);
+            let data = await query(sql);
             return resolve({ result: data.result, header: data.header });
         }
         catch (err) {

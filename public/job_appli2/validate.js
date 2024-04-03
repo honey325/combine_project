@@ -2,35 +2,35 @@
 function validate(current) {
 
 
-    switch (current) {
-        case 1:
-            table = 'basic_detail';
-            break;
-        case 2:
-            table = 'edu_detail';
-            break;
-        case 3:
-            table = 'work_exp';
-            break;
-        case 4:
-            table = 'lang';
-            break;
-        case 5:
-            table = 'tech';
-            break;
-        case 6:
-            table = 'ref';
-            break;
-        case 7:
-            table = 'pref';
-            break;
-        default:
-            table = '';
-            break;
-    }
+  switch (current) {
+    case 1:
+      table = 'basic_detail';
+      break;
+    case 2:
+      table = 'edu_detail';
+      break;
+    case 3:
+      table = 'work_exp';
+      break;
+    case 4:
+      table = 'lang';
+      break;
+    case 5:
+      table = 'tech';
+      break;
+    case 6:
+      table = 'ref';
+      break;
+    case 7:
+      table = 'pref';
+      break;
+    default:
+      table = '';
+      break;
+  }
 
-    var count = 0
-    try {
+  var count = 0
+  try {
 
 
     // string  validation
@@ -38,16 +38,16 @@ function validate(current) {
     var string_field = document.querySelectorAll(`#${table} .string`);
 
     for (field of string_field) {
-        var str = "*enter valid Input"
+      var str = "*enter valid Input"
 
-        if (/\d/.test(field.value)) {
-            append_error(field, str);
-            field.focus();
-            count++;
-        }
-        else {
-            remove_error(field, str);
-        }
+      if (/\d/.test(field.value)) {
+        append_error(field, str);
+        field.focus();
+        count++;
+      }
+      else {
+        remove_error(field, str);
+      }
     }
 
 
@@ -56,36 +56,36 @@ function validate(current) {
     var contact_field = document.querySelectorAll(`#${table} .contact`);
 
     for (field of contact_field) {
-        var str = "*please enter 10 digits and numbers only"
-    
-        if ((isNaN(parseInt(field.value)) || field.value.length != 10 || field.value.indexOf('.') != -1 )&& field.value != '') {
+      var str = "*please enter 10 digits and numbers only"
 
-            append_error(field, str);
-            field.focus();
-            count++;
-        }
-        else {
-            remove_error(field, str);
-        }
+      if ((isNaN(parseInt(field.value)) || field.value.length != 10 || field.value.indexOf('.') != -1) && field.value != '') {
+
+        append_error(field, str);
+        field.focus();
+        count++;
+      }
+      else {
+        remove_error(field, str);
+      }
 
     }
 
     //pass_year   
 
     var pass_year_field = document.querySelectorAll(`#${table} .pass_year`);
-   
+
     for (field of pass_year_field) {
-        var str = "enter value between 1960-2024"
+      var str = "enter value between 1960-2024"
 
-        if (!(/^\d+$/.test(field)) && !(field.value > 1960 || field.value < 2024) && field.value != '') {
-            append_error(field, str);
-            field.focus();
-            count++;
-        }
+      if (!(/^\d+$/.test(field)) && !(field.value > 1960 || field.value < 2024) && field.value != '') {
+        append_error(field, str);
+        field.focus();
+        count++;
+      }
 
-        else {
-            remove_error(field, str);
-        }
+      else {
+        remove_error(field, str);
+      }
 
     }
 
@@ -94,17 +94,17 @@ function validate(current) {
     var percent_field = document.querySelectorAll(`#${table} .percent`);
 
     for (field of percent_field) {
-        var str = "enter value between 0-100"
+      var str = "enter value between 0-100"
 
-        if (isNaN(parseInt(field.value)) && field.value != '' && !(field.value > 0 || field.value < 100)) {
+      if (isNaN(parseInt(field.value)) && field.value != '' && !(field.value > 0 || field.value < 100)) {
 
-            append_error(field, str);
-            field.focus();
-            count++;
-        }
-        else {
-            remove_error(field, str);
-        }
+        append_error(field, str);
+        field.focus();
+        count++;
+      }
+      else {
+        remove_error(field, str);
+      }
 
     }
     // validation for whole row
@@ -113,30 +113,30 @@ function validate(current) {
     for (tr of trs) {
 
 
-        input_count = 0;
-        inputs = tr.querySelectorAll('input');
+      input_count = 0;
+      inputs = tr.querySelectorAll('input');
+      for (input of inputs) {
+
+        if (input.value != '') {
+          input_count = 1;
+        }
+        else {
+          var str = "*field cannot be empty";
+          remove_error(input, str);
+        }
+      }
+
+      if (input_count == 1) {
         for (input of inputs) {
-
-            if (input.value != '') {
-                input_count = 1;
-            }
-            else {
-                var str = "*field cannot be empty";
-                remove_error(input, str);
-            }
+          input.classList.add('require')
         }
+      }
+      else if (input_count == 0) {
+        for (input of inputs) {
+          input.classList.remove('require')
 
-        if (input_count == 1) {
-            for (input of inputs) {
-                input.classList.add('require')
-            }
         }
-        else if (input_count == 0) {
-            for (input of inputs) {
-                input.classList.remove('require')
-
-            }
-        }
+      }
     }
 
 
@@ -144,17 +144,17 @@ function validate(current) {
     var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     var email_field = document.querySelectorAll(`#${table} .email`);
     for (field of email_field) {
-        var str = "enter valid email"
+      var str = "enter valid email"
 
-        if (!emailRegex.test(field.value) && field.value != '') {
+      if (!emailRegex.test(field.value) && field.value != '') {
 
-            append_error(field, str);
-            field.focus();
-            count++;
-        }
-        else {
-            remove_error(field, str);
-        }
+        append_error(field, str);
+        field.focus();
+        count++;
+      }
+      else {
+        remove_error(field, str);
+      }
 
     }
 
@@ -164,58 +164,58 @@ function validate(current) {
     var date_field = document.querySelectorAll(`#${table} .date`)
 
     for (field of date_field) {
-        var str = "enter valid DATE in YYYY/MM/DD formate";
-        if (isNaN(new Date(field.value)) && field.value != "") {
-            append_error(field, str);
-            field.focus();
-            count++;
-        }
-        else {
-            remove_error(field, str);
-        }
+      var str = "enter valid DATE in YYYY/MM/DD formate";
+      if (isNaN(new Date(field.value)) && field.value != "") {
+        append_error(field, str);
+        field.focus();
+        count++;
+      }
+      else {
+        remove_error(field, str);
+      }
     }
 
     if (table == "lang") {
-        // language
-        var lang_str = "please check any one language";
-        
-        var lang = ['hindi[]', 'english[]', 'gujarati[]'];
-        var lang_count = 0;
-        lang.forEach(lang_name => {
-            var str = "Please select experties";
+      // language
+      var lang_str = "please check any one language";
 
-            let checked = 0;
-            let fields = document.getElementsByName(lang_name)
-            if (fields[0].checked == false) {
-                lang_count++;
-            }
-            fields.forEach(field => {
-                if (field.checked == true) {
-                    checked++;
-                }
-                else { }
-            });
-            if (checked == 1) {
-                append_error(fields[0], str);
+      var lang = ['hindi[]', 'english[]', 'gujarati[]'];
+      var lang_count = 0;
+      lang.forEach(lang_name => {
+        var str = "Please select experties";
 
-                count++;
-            }
-            else {
-                remove_error(fields[0], str);
-            }
-
-
+        let checked = 0;
+        let fields = document.getElementsByName(lang_name)
+        if (fields[0].checked == false) {
+          lang_count++;
+        }
+        fields.forEach(field => {
+          if (field.checked == true) {
+            checked++;
+          }
+          else { }
         });
-        var no_lang = document.getElementsByName(lang[0]);
+        if (checked == 1) {
+          append_error(fields[0], str);
 
-        if (lang_count == 3) {
-            append_error(no_lang[0], lang_str);
-
-            count++;
+          count++;
         }
         else {
-            remove_error(no_lang[0], lang_str);
+          remove_error(fields[0], str);
         }
+
+
+      });
+      var no_lang = document.getElementsByName(lang[0]);
+
+      if (lang_count == 3) {
+        append_error(no_lang[0], lang_str);
+
+        count++;
+      }
+      else {
+        remove_error(no_lang[0], lang_str);
+      }
     }
 
     //     // gender
@@ -238,94 +238,94 @@ function validate(current) {
     //         remove_error(field, g_str);
     //     }
     if (table == "tech") {
-        // technology
-        var tech = ['php[]', 'mysql[]', 'laravel[]', 'oracle[]'];
+      // technology
+      var tech = ['php[]', 'mysql[]', 'laravel[]', 'oracle[]'];
 
-        tech.forEach(tech_name => {
-            var str = "Please select experties";
-            let checked = 0;
-            let fields = document.getElementsByName(tech_name)
-            fields.forEach(field => {
-                if (field.checked == true) {
-                    checked++;
-                }
-                else { }
-            });
-            if (checked == 1) {
-                append_error(fields[0], str);
-
-                count++;
-            }
-            else {
-                remove_error(fields[0], str);
-            }
-
+      tech.forEach(tech_name => {
+        var str = "Please select experties";
+        let checked = 0;
+        let fields = document.getElementsByName(tech_name)
+        fields.forEach(field => {
+          if (field.checked == true) {
+            checked++;
+          }
+          else { }
         });
+        if (checked == 1) {
+          append_error(fields[0], str);
+
+          count++;
+        }
+        else {
+          remove_error(fields[0], str);
+        }
+
+      });
 
     }
     //require field validartion
     var require_field = document.querySelectorAll(`#${table} .require`);
 
     for (field of require_field) {
-        var str = "*field cannot be empty";
-        if (field.value == '') {
-           
-            append_error(field, str)
+      var str = "*field cannot be empty";
+      if (field.value == '') {
 
-            field.focus();
-            count++;
-        }
-        else {
+        append_error(field, str)
 
-            remove_error(field, str);
+        field.focus();
+        count++;
+      }
+      else {
 
-        }
+        remove_error(field, str);
+
+      }
     }
 
 
 
     if (count != 0) {
-        return false;
+      return false;
     }
     else {
-        return true;
+      return true;
     }
-    }
-    catch (err) {
-        document.getElementById('try_err').innerHTML = "hello";
-        return false;
-    }
+  }
+  catch (err) {
+    document.getElementById('try_err').innerHTML = "hello";
+    return false;
+  }
 }
 
 function remove_error(field, str) {
 
-    sup = field.parentNode.querySelector('sup');
-    br = field.parentNode.querySelector('br');
-    if (sup == null) { }
-    else {
-        if (sup.innerHTML == str) {
-            br.remove();
-            sup.remove();
-        }
+  sup = field.parentNode.querySelector('sup');
+  br = field.parentNode.querySelector('br');
+  if (sup == null) { }
+  else {
+    if (sup.innerHTML == str) {
+      br.remove();
+      sup.remove();
     }
+  }
 }
 
 function append_error(field, str) {
 
-    sup_ele = field.parentNode.querySelector('sup');
-    if (sup_ele != null) {
-        sup_ele.innerHTML == str;
+  sup_ele = field.parentNode.querySelector('sup');
+  if (sup_ele != null) {
+    sup_ele.innerHTML == str;
 
-    }
-    else {
-        const sup = document.createElement("sup");
-        const node = document.createTextNode(str);
-        sup.appendChild(node);
+  }
+  else {
+    const sup = document.createElement("sup");
+    const node = document.createTextNode(str);
+    sup.appendChild(node);
 
-        const br = document.createElement("br");
+    const br = document.createElement("br");
 
-        sup.classList.add("error")
-        field.parentNode.appendChild(br)
-        field.parentNode.appendChild(sup)
-    }
+    sup.classList.add("error")
+    field.parentNode.appendChild(br)
+    field.parentNode.appendChild(sup)
+  }
 }
