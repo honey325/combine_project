@@ -49,11 +49,15 @@ function show(req, res) {
 
   var userid = req.query.std_id || 0;
 
+  if ((userid != undefined && userid != 0) && userid.indexOf(',') != -1) {
+    userid = userid.split(',');
+    userid.splice(userid.indexOf(''))
+  }
   if (req.query.std_id != undefined && isNaN(parseInt(req.query.std_id))) {
-
     res.render('./search_grid/display3', { current: current, month_name: month, data: {}, header: field_names, order_field: order_col, order: order, userid: userid, fname: fname, lname: lname, days: days, total, condition, error: '' });
     return;
   }
+
   var total
   var condition = req.query.condition;
   var fname = req.query.fname || '';
@@ -78,6 +82,7 @@ function show(req, res) {
 
   var sql2 = `select std_master.std_id,std_master.first_name,std_master.last_name,count(att.present) as days,(count(att.present)/${len}*100) as percent from std_master left join att on std_master.std_id = att.std_id  where present = '1' && (date_ between '${from_date}' and '${to_date}')${userid != 0 ? '&& std_master.std_id in (' + userid + ')' : ''} && (first_name Like '${fname}' && last_name like '${lname}') group by std_id having ${days != 0 ? 'days =' + days : 'days > 0'}  order by ${order_col} ${order};`;
 
+console.log(sql);
 
   try {
     if (req.query.total == undefined) {
