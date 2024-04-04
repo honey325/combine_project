@@ -65,12 +65,15 @@ function show(req, res) {
   // var percent = req.query.percent || 0;
   var days = req.query.days || 0;
   if (fname.indexOf('%') == -1) {
+    if(fname == undefined){fname = ''}
     fname = `%${fname}%`;
   }
   else {
     fname = `${fname}`;
   }
   if (lname.indexOf('%') == -1) {
+    if(lname == undefined){lname = ''}
+
     lname = `%${lname}%`;
   }
   else {
@@ -82,7 +85,6 @@ function show(req, res) {
 
   var sql2 = `select std_master.std_id,std_master.first_name,std_master.last_name,count(att.present) as days,(count(att.present)/${len}*100) as percent from std_master left join att on std_master.std_id = att.std_id  where present = '1' && (date_ between '${from_date}' and '${to_date}')${userid != 0 ? '&& std_master.std_id in (' + userid + ')' : ''} && (first_name Like '${fname}' && last_name like '${lname}') group by std_id having ${days != 0 ? 'days =' + days : 'days > 0'}  order by ${order_col} ${order};`;
 
-console.log(sql);
 
   try {
     if (req.query.total == undefined) {
