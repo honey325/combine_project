@@ -8,7 +8,7 @@ async function generate(req, res) {
   var pathname = req.url.split("?")[0]
   var sql = req.query.sql;
   // var len = req.query.len;
- console.log(req.query);
+
 
   if (sql == '' || sql == undefined) {
     sql = ""
@@ -39,7 +39,7 @@ async function generate(req, res) {
         }
         
         total = Math.ceil(len / records);
-        console.log(total);
+       
         page = await pagination(req, current, records, total);
 
         res.render('dynamic_grid/home', { header: page.header, data: page.result, pathname: pathname, sql: sql, query: req.query, url: req.url, total: total, current: current, error: '' });

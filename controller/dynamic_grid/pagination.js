@@ -18,7 +18,7 @@ function pagination(req, current, records, total) {
 
                 sql = sql + ` limit ${start},${records}`
             }
-            console.log(sql);
+           
             let data = await query(sql);
             return resolve({ result: data.result, header: data.header });
         }
