@@ -18,6 +18,6 @@ app.use(express.static('public'))
 app.use(route)
 
 app.listen(port, () => {
-  console.log('server is running');
+  console.log(`server is running on ${port}`);
 })
 

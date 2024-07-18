@@ -5,7 +5,7 @@ function pagination(req, current, records, total) {
 
     return new Promise(async (resolve, reject) => {
         try {
-            console.log(current,records);
+            // console.log(current,records);
             let start = (current - 1) * records;
             let sql = req.query.sql
             // sql = sql + ` limit ${start},${records}`;

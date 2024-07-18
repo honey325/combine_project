@@ -112,9 +112,7 @@
       let url = window.location.href;
       if (url.includes('inserted_id')) {
         let id = url.split('inserted_id=')[1]
-        document.getElementById('insert_akn').innerHTML = ` Data Inserted Successfully,
-                    <br>
-                    Your ID is ${id}`
+        document.getElementById('insert_akn').innerHTML = ` Data Inserted Successfully`
       }
       if (url.includes('updated_id')) {
         let id = url.split('updated_id=')[1]

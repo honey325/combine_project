@@ -670,18 +670,20 @@
         tabcontent = document.getElementsByClassName("tabcontent");
         for (i = 0; i < tabcontent.length; i++) {
           tabcontent[i].style.display = "none";
-          console.log("1");
+          // console.log("1");
         }
-        console.log("2");
+        // console.log("2");
         tablinks = document.getElementsByClassName("tablinks");
         for (i = 0; i < tablinks.length; i++) {
           tablinks[i].className = tablinks[i].className.replace(" active", "");
-          console.log("3");
-        } console.log("4");
+          // console.log("3");
+        } 
+        // console.log("4");
         document.getElementById(tech).style.display = "block";
         event.currentTarget.className += " active";
 
-      } console.log("6");
+      } 
+      // console.log("6");
     </script>
 </body>
 

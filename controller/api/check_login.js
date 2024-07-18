@@ -17,4 +17,4 @@ function check_login(req, res) {
         res.json('0');
     }
 }
-module.exports = check_login
+module.exports = check_login 

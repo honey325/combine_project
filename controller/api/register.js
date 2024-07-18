@@ -21,7 +21,6 @@ async function register(req, res) {
     }
     let pwd_salt = generateUniqueId({
         length: 4
-
     });
     let activation_code = generateUniqueId({
         length: 12
